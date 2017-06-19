@@ -1,0 +1,65 @@
+﻿1.BOM的概述
+    browser object modal :浏览器对象模型。
+    浏览器对象：window对象。
+    Window 对象会在 <body> 或 <frameset> 每次出现时被自动创建。
+
+2. window的属性
+     innerHeight: 
+     innerWidth:  IE不支持
+		通用写法：document.body.clientWidth
+	              document.body.clientHeight
+	 self :等同于window对象
+	 parent：是打开窗口的父窗口对象
+	 opener：是打开窗口的父窗口对象。
+			2种情况下使用opener:
+				   1.使用winodw.open()方法打开的页面
+				   2.超链（里面的target属性要设置成_blank）
+			2种情况下使用parent:
+				   1.iframe 框架
+				   2.frame 框架
+	 frames[]: 数组类型，代表子窗口的window对象的集合,可以通过frames[索引]拿到子窗口的window对象。
+		示例：父子窗口相互传参.
+     
+    open方法，是打开一个页面.
+
+
+    对话框：
+         1)消息框 alert() ;
+         2)确认框 confirm() ;
+         3)输入框 prompt() ; (了解)
+
+    定时器：
+       setTimeout ,setInterval
+	     定时器： 1.setTimeout() :只会调用1次
+				  2.setInterval() ：每隔一段时间调用1次
+ 
+3. history对象
+     a.  forward()前进
+	 b.  back() 后退
+	 c.  go(n) 正数是前进，负数是后退.
+
+4. location对象。
+        1.href 属性： 是指要连接到其他的URL
+						写法一、window.location.href='demo_window对象的close方法.html' ；
+						写法二、window.location='demo_window对象的close方法.html' ；
+
+		2.reload方法: 刷新
+			写法： window.location.reload() ；
+
+5.常用事件
+	鼠标移动事件
+		onmousemove(event) : 鼠标移动事件 event是事件对象。名字固定 
+		onmouseover : 鼠标悬停事件
+		onmouseout : 鼠标移出事件
+    鼠标点击事件
+		onclick 
+	加载与卸载事件 
+		onload ,onunload
+	聚焦与离焦事件
+		onfocus, onblur
+	键盘事件
+		onkeypress,onkeyup,onkeydown
+	提交与重置事件
+		onsubmit,onreset
+	选择与改变事件
+   

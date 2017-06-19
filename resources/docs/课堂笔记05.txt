@@ -1,0 +1,171 @@
+﻿一、知识回顾
+	* BOM 概述
+	* BOM 的各个对象
+	     * window对象
+		        innerHeight，innerWidth 
+				document.body.clientWidth,document.body.clientHeight,
+				self
+				opener :超链和window.open() 
+				parent : iframe和frame
+				frames[]:
+				
+		        三种对话框： alert(),prompt(),confirm()
+				定时器： setTimeout(),setInterval() 
+				
+				模态窗口： showModalDialog() ,showModelessDialog() 
+		
+		*  History对象
+				forward() ,back(),go()
+		*  Location对象.
+
+二、内容
+	* 事件（掌握，明白每个事件发生的时机）
+		鼠标移动事件
+		* onmousemove(event) : 鼠标移动事件 event是事件对象。名字固定 
+		* onmouseover : 鼠标悬停事件
+			鼠标悬停事件： 当鼠标移动到某个控件上面的时候发生
+				this: 把this写在那个标签里面就代表那个标签对象
+				this.style.backgroundColor : 当调用样式表中的属性的时候，如果属性中间有横杠，则应去掉.
+			
+			 示例： 当鼠标移动到p标签上的时候，p标签改变样式  (参见demo01_鼠标悬停事件.html)
+		* onmouseout : 鼠标移出事件
+			鼠标移开事件： 当鼠标从控件上移开的时候
+			示例参见(demo_02_鼠标移开事件.html ;
+			
+    * 鼠标点击事件
+		onclick : 当鼠标单击某个控件时发生
+			示例： 当单击按钮时，在<p>中显示字符串 "冠希哥来了" 参见(demo03_鼠标单击事件.html)
+			
+	* 加载与卸载事件 
+		onload ,onunload
+			加载事件(onload) : 在整个页面的元素加载完毕之后发生
+			卸载事件(onunload) : 是在页面关闭时发生 
+			  注意： onload和onunload事件必须写在body或者图片标签里面
+			  示例参见（demo04_加载卸载事件.html）
+			  
+	* 聚焦与离焦事件
+		onfocus, onblur
+			聚焦事件：是在控件获得焦点的时候发生
+			离焦事件：是在控件失去焦点的时候发生
+
+			示例： 文本框获得焦点的时候改变样式，失去焦点时变回原样(参见demo05_聚焦离焦事件.html)
+			
+	* 键盘事件
+		onkeypress,onkeyup,onkeydown
+			onkeypress: 按下键盘按键并松开
+			onkeydown : 按下按键发生
+			onkeyup: 松开按键
+			
+			示例参见（demo06_键盘事件.html`）
+
+	* 提交与重置事件
+		onsubmit,onreset
+		提交事件： 是在点击提交按钮后发生。(必须写在form表单中)
+		重置事件： 是在点重置交按钮后发生。
+
+		示例： 提交表单中的数据(检查):如果是陈冠希：通过，否则不能提交数据（参见demo07_提交重置事件.html）
+
+			
+	* 选择与改变事件
+	    onselect:
+		onchange:
+		
+		onselect: 只能用于输入框. 当选择输入框中的文本时发生
+		onchange: 用于select和文本框.
+					对于下拉框是在选项发生变化的时候发生
+					对于文本框是在文本框的内容发生变化并且失去焦点时发生
+
+			示例： 当选择文本框的内容时，弹出文本框的内容
+			下拉框的selectedIndex属性：代表选中某项的索引 
+			参见(demo08_选择与改变事件.html)
+
+
+DOM技术
+1.Dom概述？
+		* 什么是DOM？  docuemnt object model 文档对象模型
+		* 它的作用？   重构整个 HTML 文档。您可以添加、移除、改变或重排页面上的项目
+		* 分类？   
+			 Core DOM :   定义了一套标准的针对任何结构化文档的对象 
+			 XML  DOM :   定义了一套标准的针对 XML 文档的对象 
+			 HTML DOM :   定义了一套标准的针对 HTML 文档的对象。 
+		*.xml介绍？
+			expensible markup language : 可扩展标记语言.
+				<penson>
+					<name>张无忌</name>
+					<age>23</age>
+				</person>
+				
+2.DOM树
+	* 结点 :   文档中的每个成分都是一个节点.(包括文本也是节点)
+	*.结点的属性
+		a. nodeName（节点名称） 
+			元素节点的 nodeName 是标签名称 
+			属性节点的 nodeName 是属性名称 
+			文本节点的 nodeName 永远是 #text 
+			文档节点的 nodeName 永远是 #document 
+
+		b. nodeValue（节点值） 
+		    对于文本节点，nodeValue 属性包含文本。
+			对于属性节点，nodeValue 属性包含属性值。
+			nodeValue 属性对于文档节点和元素节点是不可用的。
+
+		c. nodeType（节点类型）  : nodeType 属性可返回节点的类型。
+			标签节点的类型值是 1
+			属性节点的类型值是 2
+			文本节点的类型值是 3
+
+	*. 结点的分类
+			整个文档是一个文档节点 
+			每个 XML 标签是一个元素节点 
+			包含在 XML 元素中的文本是文本节点 
+			每一个 XML 属性是一个属性节点 
+			注释属于注释节点 
+
+	*.结点的关系
+			只有父子和兄弟关系
+			parentNode  : 父节点
+			childNodes  ：所有的子标签
+			firstChild  ：第一个儿子
+			lastChild 　：最后一个儿子
+			nextSibling ：下一个兄弟节点
+			previousSibling ：　上一个兄弟节点
+
+	*. 对结点进行CRUD操作
+		*.查找结点？
+			两种方式： a. 采用节点之间的关系去拿 根节点： document.documentElement ;
+					   b. 采用方法去拿
+							 getElementById() : 根据标签的ID拿到此标签节点
+							 getElementsByTagName() : 根据标签的名字拿到此标签节点数组
+							 getElementsByName(): 适用于表单控件。根据标签的name属性值拿到控件的数组。
+				
+				以上示例参看:示例二. demo09_演示DOM节点属性并获取节点的方法.html;
+							 示例二。demo10_示例一获取h1标签内容.html			             
+							 
+		*.删除结点？
+			removeChild() : 采用父节点删除子节点
+			参见示例（）
+		
+		*创建节点：
+			document.createElement()  : 创建一个标签节点
+					参见 demo15_表格添加行.html
+			docuemnt.createTextNode("内容") ：创建一个文本节点
+					参见 demo14_添加节点.html
+			节点的setAttribute() :添加属性节点
+					参见 demo14_添加节点.html
+					
+		*.添加结点？
+			appendChild() : 添加子节点
+				参见 demo14_添加节点.html
+				参见 demo15_表格添加行.html
+				
+		*.修改或替换结点？
+			replaceNode(): 替换节点(适用于IE)
+			replaceChild() : 替换子节点
+			
+				参见demo13_节点的替换.html
+
+	
+
+	在javascript中想调用html代码： 只能通过属性innerHTML
+	在javascript中想调用CSS代码： 只能通过属性clasName可以调用样式表
+										  .style.属性

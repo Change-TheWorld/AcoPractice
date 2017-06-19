@@ -1,0 +1,179 @@
+一、CSS 概述(了解)
+	*.CSS  ： Cascading Style Sheet 层叠样式表
+	*.CSS 作用就是给HTML页面标签添加各种样式
+	*.为什么用CSS
+		HTML的缺陷： 1. 不能够适应多种设备
+			        2. 要求浏览器必须智能化足够庞大
+				    3. 数据和显示没有分开
+				    4. 功能不够强大
+   CSS 优点：
+			1.使数据和显示分开 
+			2.降低网络流量
+			3.使整个网站视觉效果一致
+			4.使开发效率提高了
+二、CSS语法
+	p{color：red;}
+  
+	选择器{属性名：属性值 ;} 
+		   选择器后一定是大括号.属性名后必须用冒号隔开.属性值后用分号
+		   属性名和冒号之间最好不要有空格。
+
+三、CSS和HTML的结合方式
+	CSS代码理论上位置是任意的，但通常写在style标签里
+	CSS和HTML的结合方式有3种：
+		a. 行级样式表:采用style属性,范围只针对此标签适用
+				<div style = "border:1px solid red ;">大家好</div>
+		b. 内嵌样式表:采用<style>标签完成。范围针对此页面
+		c. 外部样式表: 采用建立样式表文件。针对多个页面.
+			引入样式表文件的方式:
+				1):采用<link>标签
+					eg:<link rel = "stylesheet" type = "text/css" href = "a.css"></link>
+				2):采用import，必须写在<style>标签中，并且必须是第一句
+					eg: @import url(a.css) ;
+							
+				两种引入方式的区别： 
+						外部样式表中不能写<link>标签,但是可以写import语句
+
+四、CSS选择器
+	选择器分为两大类:
+	1.基本选择器
+	    a.标签选择器:指的就是选择器的名字代表html页面上的标签
+			p{
+				color:red ;
+				border:1px dashed green;
+			}
+			
+		b.类选择器：规定用圆点.来定义
+			优点：灵活
+			eg: .one{background-color:#ff0099; }
+			
+		c. ID选择器：规定用#来定义
+			eg: #one{cursor:hand; }
+		    区别：标签选择器针对的是页面上的一类标签.
+				类选择器可以供多种标签使用.
+				ID选择器是值供特定的标签(一个). ID是此标签在此页面上的唯一标识。
+				
+		d:通用选择器： 用*定义,代表页面上的所有标签。
+			*{
+					font-size:30px;
+					margin-left:0px;
+					margin-top:0px;
+			}
+
+2.扩展选择器
+	 a. 组合选择器:采用逗号隔开
+			eg: p,h1,h2,.one,#two{color:red ; }
+	 b. 关联选择器(后代选择器): 采用空格隔开
+			eg: h4 span i{color:red ; } 
+			表示h4标签中的span标签中的i标签的样式
+			h4和span和i标签不一定是紧挨着的。
+	 c. 伪类选择器
+		 1) :静态伪类：规定是用:来定义.只有两个.只能用于超链接.
+						  :link表示超链接点击之前的颜色
+						  :visited表示链接点击之后的颜色
+						  
+						eg:a:link{color:red ;}
+						   a:visited{color:yellow;}
+				注意： a:link{}定义的样式针对所有的写了href属性的超链接(不包括锚)
+					   a{}定义的样式针对所有的超链接(包括锚)
+		 2) :动态伪类 : 针对所有的标签都适用
+					:hover : 是移动到某个标签上的时候
+					:focus : 是某个标签获得焦点的时候
+					:active : 点击某个标签没有放松鼠标时
+					eg: label:hover{color:#00ff00; }
+						input:focus{
+								background-color:#ff9999;
+								border:1px solid red;
+							}
+						a:active{
+								color:blue;
+							}
+
+五、CSS各种选择器的冲突(掌握)
+		CSS样式的冲突:
+			1.ID选择器 > 类选择器 > 标签选择器
+			2.行级样式表 > 内嵌样式表 > 外部样式表
+			外部样式表的ID选择器  > 内嵌样式表的标签选择器
+
+				原则： 就近原则
+
+六、CSS的各种属性(掌握)
+	? CSS中尺度单位的介绍
+	  CSS的单位:
+		a. 绝对单位 1in=2.54cm=25.4mm=72pt=6pc , pt是点或者磅，pc是派卡
+		b. 相对单位：px, em(印刷单位相当于12个点), %(相对周围的文字)
+			
+		*字体设置
+		   p{
+				font-size:50px;    /*字体大小*/
+				font-style:italic ;  /*斜体*/
+				font-weight:bold;  /*粗体*/
+				font-family:幼圆;  /*字体类型*/
+				font-variant:small-caps;  /*小写变大写*/
+			}
+		*文本设置
+		   p{
+				letter-spacing:0.5cm ; /*字母间距*/
+				word-spacing:1cm;   /*单词间距*/
+				text-align:center;   /*在所包含容器的中间*/
+				text-decoration:overline; /*字体修饰 underline下划线 line-through中划线 overline上划线*/
+				text-transform:lowercase;  /*单词字体大小写*/
+				color:red ;
+			}
+			
+		*背景设置
+			body{
+					background-color:#ff99ff ;  /*背景颜色*/
+					background-image:url(images/2.gif) ; /*背景图片*/
+					background-repeat: no-repeat;  /*no-repeat不要平铺，repeat-x,横向平铺，repeat-y 纵向平铺*/
+					background-position:center right; /*背景位置*/
+					background-attachment: scroll ;           /*背景的移动 ,fixed跟着滚动条一起移动，scroll 不动*/
+				}
+		*列表设置
+			ul li{
+				list-style:none;    /*列表前样式*/
+				list-style-image:url(images/2.gif) ;  /*列表项前图片*/
+				margin-left:80px;  
+			 }
+
+		*盒子模型(border margin padding)
+			 padding:是内容到边的距离
+			 border: 是边的粗细
+			 margin:是控件到控件的距离
+			 
+		*定位设置(position,float,clear,z-index)
+			#d{
+				position: absolute;    /*
+						  1.绝对定位: 定义横纵坐标 .脱离了本身的顺序流
+						  2.相对定位: 相对的是自己在顺序流中原来的位置
+					  */
+
+				left:100px;    /*横坐标*/
+				top:100px;     /*纵坐标*/
+				border:1px solid red ;  
+				width:100px;
+				height:100px;
+				background-color:#ff66ff;
+			  }
+
+			#d1{
+				position: relative;    /*相对位置*/
+				left:100px;
+				top:100px;
+				border:1px solid green ;
+				width:100px;
+				height:100px;
+				background-color:#339900;
+			  }
+
+			span{
+				position: relative;
+				left:20px;
+				top:20px;
+			 }
+           z-index:值任意，值越大离我们越近
+		   float : 浮动
+		   overflow: 超出范围怎么办
+鼠标样式设置(cursor)
+
+七、滤镜(了解)

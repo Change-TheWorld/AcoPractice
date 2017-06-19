@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=7" />
+    <title>基础数据管理</title>
+    <link href="/content/ui/bui/css/bs3/dpl-min.css" rel="stylesheet" />
+    <link href="/content/ui/bui/css/bs3/bui-min.css" rel="stylesheet" />
+
+    <script src="/content/js/common.js"></script>
+
+</head>
+<body>
+    <div class="main-container" id="cpcontainer">
+        <div class="floattop">
+            <div class="itemtitle">
+                <h3 style="margin-right: 8px;">
+                    海关编码管理
+                </h3>
+            </div>
+        </div>
+        <div class="floattopempty">
+        </div>
+        <!--弹出新增、编辑框-->
+        <div id="content" style="display: none">
+            <form id="J_Form" class="form-horizontal" action="/admin/hscode/ajaxaddhscode" method="post">
+            <div class="row">
+                <div class="control-group span8">
+                    <label class="control-label">
+                        <s>*</s>海关编码：</label>
+                    <div class="controls">
+                        <input name="code" id="code" type="text" data-rules="{required:[true,'海关编码不能为空'],number:[true,'请输入大于0的数字'], min:0,length:[10,'长度必须为10位']}"
+                            class=" input-normal control-text">
+                        <input name="id" id="id" style="display: none" type="text" data-rules="{required:true}"
+                            class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">
+                        <s>*</s>商品名称：</label>
+                    <div class="controls">
+                        <input name="gName" id="gName" type="text" data-rules="{required:true}" class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">
+                        <s>*</s>法定单位：</label>
+                    <div class="controls">
+                        <div id="s1">
+                        </div>
+                        <input type="hidden" id="legalUnitNull" data-rules="{required:[true,'法定单位不能为空']}"
+                            name="legalUnitNull" class="input-normal control-text" />
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">
+                        第二法定单位：</label>
+                    <div class="controls">
+                        <div id="s2">
+                        </div>
+                        <input type="hidden" id="secondLegalUnitNull" name="secondLegalUnitNull" class="input-normal control-text" />
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">
+                        <s>*</s>增值税率(%)：</label>
+                    <div class="controls">
+                        <input name="taxRate" id="taxRate" type="text" data-rules="{required:true,number:[true,'只能为数字']}"
+                            class="input-normal control-text">
+                        %
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="row" style="width: 98%;">
+            <!--grid搜索条件表单-->
+            <form id="searchForm" class="form-horizontal well" tabindex="0" style="outline: none;
+            padding-bottom: 5px;">
+            <div class="row">
+                <div class="control-group span8">
+                    <label class="control-label">
+                        海关编码：</label>
+                    <div class="controls">
+                        <input class="control-text bui-form-field" data-rules="{required:false,number:[true,'只能为数字']}"
+                            type="text" id="cndCode" name="code" aria-disabled="false">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">
+                        商品名称：</label>
+                    <div class="controls">
+                        <input class="control-text bui-form-field" type="text" name="gName" id="cndgName"
+                            aria-disabled="false">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="btnSearch" class="button button-primary" type="submit">
+                        搜索</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="row" style="height: 40px;">
+                <div class="pull-right">
+                    <button id="btnAdd" class="button button-small">
+                        <i class="icon-plus"></i>添加
+                    </button>
+                    <button id="btnDel" class="button button-small">
+                        <i class="icon-remove"></i>删除
+                    </button>
+                </div>
+            </div>
+            <div id="grid">
+            </div>
+        </div>
+    </div>
+
+    <script src="/content/js/jquery-1.10.2.min.js"></script>
+
+    <script src="/content/ui/bui/seed-min.js" data-debug="true"></script>
+
+    <style>
+        .bui-select-list
+        {
+            overflow: auto;
+            overflow-x: hidden;
+            max-height: 150px;
+            _height: 150px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        BUI.use(['bui/grid', 'bui/data', 'bui/overlay', 'bui/form', 'bui/mask', "bui/extensions/treegrid", 'bui/tree', 'bui/select', 'bui/picker']
+            , function (Grid, Data, Overlay, Form, Mask, TreeGrid, Tree, Select, Picker) {
+
+                //UI元素定义---------------------------------
+                var Grid = Grid;
+                var Store = Data.Store;
+                var Proxy = Data.Proxy.Ajax;
+                var Format = Grid.Format;
+                //UI元素高度计算
+                var winHeight = $(window).height() - 120;
+                var uiControlHeight = winHeight < 500 ? 500 : winHeight;
+
+                var columns = [
+                    { title: '海关编码', dataIndex: 'code', elStyle: { 'text-align': 'center'}, elCls: "center",width:10 },
+                    { title: '商品名称', dataIndex: 'gName', elStyle: { 'text-align': 'center' }, elCls: "left",width:35 },
+                    { title: '法定单位', dataIndex: 'legalUnitWithLabel', elStyle: { 'text-align': 'center' }, elCls: "center",width:10 },
+                    { title: '第二法定单位', dataIndex: 'secondLegalUnitWithLabel', elStyle: { 'text-align': 'center' }, elCls: "center",width:10 },
+                    {
+                        title: '增值税率(%)', dataIndex: 'taxRate', elStyle: { 'text-align': 'center' }, elCls: "right",width:10
+                    },
+                    {
+                        title: '操作', width: 200, renderer: function () {
+                            return '<span class="grid-command btn-edit"><i class="icon icon-edit"></i> 编辑</span>'
+                                + ' <span class="grid-command btn-delete"><i class="icon icon-remove-sign"></i> 删除</span>'
+                        }, elStyle: { 'text-align': 'center' }, elCls: "center",width:25
+                    }
+                ];
+
+                //遮罩层
+                var loadMask = new Mask.LoadMask({
+                    el: '#grid',
+                    msg: '正在处理中...'
+                });
+
+                //网络代理类
+                var proxy = new Proxy({
+                    method: 'POST',
+                    save:{
+                        addUrl: '/admin/hscode/ajaxaddhscode',//新增提交的URL
+                        removeUrl: '/admin/hscode/ajaxdeletehscode',//删除提交的URL
+                        updateUrl: '/admin/hscode/ajaxupdatehscode'//编辑提交的URL
+                    },
+                    ajaxOptions: {
+                        error: function (jqXHR, textStatus, responseText) {
+                            BUI.Message.Alert("网络错误，" + jqXHR.status, "error");
+                        }
+                    }
+                });
+
+
+                //列表数据缓存
+                var store = new Store({
+                    url: '/admin/hscode/ajaxlist',//grid的数据源 ajax的URL
+                    autoLoad: true,
+                    params: {
+                        pageSize: 20,
+                        pageIndex: 0,
+                        cateId: 0,
+                    },
+                    pageSize: 20,
+                    autoSync: true,
+                })
+
+
+                //渲染grid表格类
+                var grid = new Grid.Grid({
+                    render: '#grid',
+                    columns: columns,
+                    //height: winHeight,
+                    forceFit: true,
+                    plugins: [Grid.Plugins.CheckSelection],
+                    store: store,
+                    idField: 'code',
+                    emptyDataTpl: '<div class="centered"><img alt="Crying" src="/Content/image/nodata.png" /><h2>暂无数据</h2></div>',
+                    bbar: {
+                        pagingBar: true,
+                    }
+                }).render();
+
+
+
+                //grid查询条件表单类
+                var searchForm = new Form.HForm({
+                    srcNode: '#searchForm',//查询条件表单
+                    focusError: true,
+                    submitType: 'ajax',
+                    listeners: {
+                        beforesubmit: function (ev) {
+                            //组装查询条件
+                            var loadParam = {};
+                            loadParam.code = $("#cndCode").val();
+                            loadParam.gName = $('#cndgName').val();
+                            loadParam.pageSize = 20,
+                            store.load(loadParam);//将查询条件加载到数据源里面
+                            //bar.jumpToPage(1);
+                            return false;
+                        }
+                    }
+                }).render();
+
+                //新增、编辑的表单类
+                var form = new Form.HForm({
+                    srcNode: '#J_Form',//新增、编辑提交的表单
+                    focusError: true,
+                    submitType: 'ajax',
+                    callback: function (data) {
+                        var form = this;
+                        if (!data.success && data.errors) {
+                            var hiddenError = '';
+                            BUI.each(data.errors, function (v) {
+                                var field = form.getField(v.Key);
+                                if (field) {
+                                    field.showErrors([v.Value]);
+                                } else {
+                                    hiddenError = v.Value + ';' + hiddenError;
+                                }
+                            });
+                            if (hiddenError != '') {
+                                BUI.Message.Alert(hiddenError, 'error');
+                            }
+                        } else {
+                            store.load();
+                            dialog.close();
+                        }
+                    }
+                }).render();
+
+
+                //弹出层类
+                var dialog = new Overlay.Dialog({
+                    title: '添加/编辑',
+                    width: 700,
+                    contentId: 'content',
+                    success: function () {
+                        if (form.isValid()) {
+                            form.submit({
+                                error: function (jqXHR, textStatus, responseText) {
+                                    BUI.Message.Alert("网络错误，" + jqXHR.status, "error");
+                                    var submitMask = form.get('submitMask');
+                                    if (submitMask && submitMask.hide) {
+                                        submitMask.hide();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+                //事件注册-----------------------------------
+                //新增按钮事件
+                $('#btnAdd').on('click', function () {
+                    form.clearFields();//清除错误和上一次填写的值
+                    form.clearErrors();
+                    form.set('action', '/admin/hscode/ajaxaddhscode');//设置弹出层的URL提交路径
+                    $('#id').val(0);
+                    dialog.set('title', '添加海关编码');
+                    $("input[name=legalUnit]").val("");
+                    $("#legalUnitNull").val("0");
+                    $("input[name=secondLegalUnit]").val("");
+                    $("#secondLegalUnitNull").val("0");
+                    dialog.show();
+                    form.clearErrors();
+                });
+                
+                //批量删除按钮
+                $('#btnDel').on('click', function () {
+                    var selections = grid.getSelection();
+                    if (!selections || selections.length <= 0) {
+                        BUI.Message.Alert("请选择需删除项", "warning");
+                        return;
+                    }
+                    BUI.Message.Confirm('确认删除么？', function () {
+                        var code = {};
+                        for (var i = 0; i < selections.length; i++) {
+                            code[i] = selections[i].code;
+                        }
+                        loadMask.show();
+                        proxy.save('remove', { code: code }, function (data) {
+                            if (data.success) {
+                                store.load();
+                            } else {
+                                BUI.Message.Alert("删除错误", "error");
+                            }
+                            loadMask.hide();
+                        });
+                    }, 'question');
+                });
+
+                //单个编辑和删除
+                grid.on('cellclick', function (ev) {
+                    var item = ev.record;
+                    var sender = $(ev.domTarget);
+                    if (sender.hasClass('btn-edit')) {
+                        form.clearFields();
+                        form.set('action', '/admin/hscode/ajaxupdatehscode');
+                        form.setRecord(item);
+                        $("input[name=legalUnit]").val(item.legalUnitWithLabel);
+                        $("#legalUnitNull").val(item.legalUnitWithLabel);
+                        $("input[name=secondLegalUnit]").val(item.secondLegalUnitWithLabel);
+                        $("#secondLegalUnitNull").val(item.secondLegalUnitWithLabel);
+                        dialog.set('title', '编辑海关编码');
+                        dialog.show();
+                        return false;
+                    } else if (sender.hasClass('btn-delete')) {
+                        BUI.Message.Confirm('确认删除么？', function () {
+                            loadMask.show();
+                            proxy.save('remove', { code: item.code }, function (data) {
+                                if (data && data.success) {
+                                    store.load();
+                                } else {
+                                    BUI.Message.Alert("删除错误", "error");
+                                }
+                                loadMask.hide();
+                            });
+                        }, 'question');
+                        return false;
+                    }
+                }); 
+            });
+    </script>
+
+</body>
+</html>

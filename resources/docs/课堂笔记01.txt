@@ -1,0 +1,206 @@
+www.lthack.com
+
+npm config set prefix "D:\FrontEnd\nodejs\node_global"
+npm config set cache "D:\FrontEnd\nodejs\node_cache"
+
+require('express')
+npm uninstall <express> [-g] [--save-dev]
+
+一、HTML的概述（了解）
+
+	a.html是什么 ： hypertext markup language 超文本标记语言
+		   超文本：音频，视频，图片称为超文本。.
+		   标记 ：<英文单词或者字母>称为标记. 一个HTML页面都是由各种标记组成。
+    b.作用：编写HTML页面。
+	c.HTML语言不是一个编程语言(有编译过程)，而是一个标记语言(没有编译过程).
+            HTML页面直接由浏览器解析执行。 
+
+二、HTML的历史（了解）
+
+三、HTML的网络术语（明白）
+
+    * 网页 ：由各种标记组成的一个页面就叫网页 .
+    * 主页(首页) : 一个网站的起始页面或者导航页面 .
+    * 标记:<p>称为开始标记  </p>称为结束标记. 也叫标签.每个标签都规定好了特殊的含义。
+    * 元素：<p>内容</p> 称为元素.
+    * 属性： 给每一个标签所做的辅助信息。
+    * xhtml： 符合XML语法标准的HTML。
+    * dhtml：dynamic,动态的。javascript + css + html 合起来的页面就是一个dhtml
+    * http：协议标准。用来规定客户端浏览器和服务端交互时数据的一个格式。SMTP 邮件传输协议,ftp:文件传输协议.
+
+四、HTML的编辑工具（了解）
+	*.notepad 记事本
+	*.editplus : 语法高亮显示
+		技巧： 根据颜色判断单词是否出错。 （不是100%）
+	*.ultraedit : 根据颜色判断单词是否出错,可以显示2进制数据.
+	*.dw(dreamweaver,专业工具)  代码提示.
+
+五、HTML的规范(知道)
+    *.HTML是一个弱势语言
+	*.html 不区分大小写
+	*.html页面的后缀名是html或者htm(有一些系统不支持后缀名长度超过3个字符，比如dos系统)
+	*.html 的结构
+		1)声明部分。主要作用是用来告诉浏览器这个页面使用的是那个标准。<!doctype html>是HTML5标准。
+		2)head部分： 不会显示在页面上。作用是告诉浏览器一些页面的额外信息。
+		3)body部分：我们缩写的代码必须放在此标签內。
+
+六、HTML的各种标签(掌握)
+  明确：每个标签都有私有属性。也都有公有属性。
+         html中表示长度的单位都是像素。HTML只有一种单位就是像素。
+		 任意浏览器的默认字体高度16px（16像素）。所有未经调整的浏览器都符合: 
+		 我们在对全体html标签声明初始一次font-size=62.5%
+	如：
+		*{font-size=62.5%}
+		即可此后面布局可依据以下技巧进行设置em单位
+			font-size:1.2em等于font-size:12px
+			font-size:1.4em等于font-size:14px
+		以此类推相当于初始font-size=62.5%后，em与px单位就只有10倍差距，以便方便计算与设置em长度数值使用。
+		
+   body:  
+		bgcolor: 背景颜色
+		background:背景图片
+		text: 文本颜色
+		
+1.排版标签	
+        所有的浏览器默认情况下都会忽略空格和空行
+		P：p代表一个段落
+			属性： align:对齐方式. 取值：left,right,center
+		<br>代表是换行。
+		hr:
+			color: 线的颜色
+			size : 线的粗细
+			width: 线的长短
+				    两种写法： 1) 绝对值  eg: 500
+							   2) 相对值： 50%
+			noshade: 不要阴影
+			align: 对齐方式 取值： left,right,center
+
+		center: 内容居中
+		pre: 预定义格式标签 .告诉浏览器不要忽略空格和空行
+		div: 块级标签  必须单独占据一行
+			   属性： align :
+		span: 块级标签 不换行字体标记    
+2 字体标签
+		h1...h6:定义字体大小
+			属性： align :居中
+		font:
+			color:字体颜色
+				颜色的写法有3种： 1)英文单词: red 
+							      2)十六进制：#00ffcc
+								  3)RGB(三原色) : new RGB(124,156,23)
+			size:字体大小
+			face：字体类型
+		特殊字符： &lt;小于 &gt;大于 &amp; &符号 &quot; 双引号&apos;单引号
+					   &copy; 版权 &trade;商标 &nbsp;空格
+					   扩展：&#32464; 
+		b: 加粗
+		strong: 加粗
+		i:斜体
+		em: 斜体
+		u: 下划线
+		s: 中划线(删除线)
+		sup: 上标
+		sub: 下标.    
+3.图像标记	
+		img: 代表是一副图片
+		   属性： src : 图片的路径
+		                两种写法：a) : 相对路径 路径是相对页面所在的路径 两个标记.和.. ,分表代表当前目录和父路径
+						          b) ：绝对路径
+									        1) : 以盘符开始的路径
+											    eg: C:\Documents and Settings\Administrator\桌面\day01_html\上课示例/images/1.jpg
+											2) : 网络路径
+												eg: http://www.baidu.com/images
+				 width: 宽度
+				 height：高度
+				 Alt：当图片显示不出来的时候代替图片显示的内容
+				 title： 提示性文本
+				 border: 边框
+		热点： 就是特定的位置添加超链。
+				 <img src="images/1.jpg" width="300" height="300" usemap="#Map" border="0" />
+					<map name="Map" id="Map">
+						<area shape="circle" coords="122,81,38" href="demo_字体标签.html" />
+					</map>
+4.清单标记
+		列表标签：3种
+			a.无序列表ul
+				属性：type : 值： disc(默认，实心原点),square(实心方点),circle(空心圆)
+			b.有序列表(OL)
+				属性: type:取值：1(阿拉伯数字，默认),a,A,i,I
+					  start: 从几开始
+			c.定义列表(dl)
+				 dt: 列表项的标题
+				 dd: 列表项
+5.超链接	
+		3种超链接:
+			1. 连接到其他页面
+			2. 锚: 指给超链接起一个名字，作用是连接到本页面或者其他页面的特定位置。使用name属性给超链起名字
+			3. 连接到邮件: <a href = "mailto:xugang@itcast.cn">进入我的邮箱</a>
+				属性：target: 告诉浏览器怎么显示目标页面 
+						HTML中已定义4个值： _self :在同一个浏览器中显示
+									        _blank: 打开新的浏览器显示
+									        _parent: 在父窗口中显示
+									        _top: 在顶级窗口中显示
+6.表格标记
+    table: 表格
+		  属性：border:边框
+				width:宽度
+				height：高度
+				align:表格的对齐方式
+				cellpadding:单元格内容到边的距离
+				cellspacing:单元格和单 元格之间的距离
+				bgcolor:背景颜色
+				background:背景图片
+				bordercolorlight:表格的上，左边框，以及单元格的右，下边框的颜色
+				bordercolordark: 表格的右，下边框，以及单元格上，左的边框的颜色
+				dir:单元格内容的排列方式 取值：ltr 从左到右， rtl:从右到左
+		tr: 行
+		  属性：dir:
+				bgcolor:
+		td: 单元格
+		  属性： align: 内容的横向对齐方式
+				 valign: 内容的纵向对齐方式 top,middle,bottom
+				 width: 绝对值或者相对值(%)
+				 height:单元格的高度
+
+		单元格的合并：
+		      单元格的属性：
+			      colspan: 横向合并
+				  rowspan: 纵向合并
+		 th: 相当于<td> + <b>
+		    属性同<td>
+		caption: 表格的标题
+		   属性：align: 取值：left,center,right,top,bottom
+		thead
+		tbody
+		tfoot
+		   写与不写的区别： 
+		           1. 当表格非常大的时候，如果不写，则必须等表格的内容全部下载完成才能显示。但是用tbody标签的话，那么边下载边显示。					2.如果不写thead,tbody,tfoot那么浏览器解析表格内容的时候是从上到下解析。如果写了，那么顺序任意，浏览器解析的时候还是按照thead,tbody,tfoot的顺序显示内容
+7.框架标记及<iframe>
+        框架页面上不允许有body标签
+		frameset: 框架的集合
+			rows: 纵向分部框架. 
+			cols: 横向分部框架.
+			      写法有两种: 1) 绝对值  "200,*" ,*代表剩余的
+							  2) 相对值  "30%,*"
+		frame: 框架. 一个框架显示一个页面
+			scrolling: 是否需要滚动条。默认是true
+			noresize : 固定框架大小
+			bordercolor: 给框架边框起一个颜色
+			name : 给框架起一个名字
+				内嵌框架： 嵌入在一个页面上的框架.(仅仅IE支持)
+				iframe:
+					属性： width: 宽度
+						   height： 高度
+				 		   scrolling : 是否需要滚动条
+8.表单标记及语义化
+
+9.多媒体标记
+		bgsound: 背景音乐 
+		embed: 播放多媒体文件.
+		marquee: 移动
+			属性：direction 移动目标方向 left,right ,up,down ,up，down移动距离是固定的200px
+				  behavior: 行为方式 取值：slide,alternate,scroll
+				  scrollamount : 移动速度
+				  loop: 循环多少圈。负值表示无限循环
+				  scrolldelay: 移动一次休息多长时间。单位是毫秒
+10.头标记

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Demo</title>
+
+    <!-- 个人设置 -->
+    <link rel="short icon" type="x-icon" href="./Aco_favicon.ico">
+
+    <!-- CSS 资源引入 -->
+    <link rel="stylesheet" href="./myAppCss.css">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+
+</head>
+
+<body>
+    <div class="container" ng-app="myApp">
+        <h2 class="title01"> 通过几个应用实例 ，检验这几天学习的成果</h2>
+        <h4 class="title02">第一个应用： 备忘录(练习ng-model, ng-repeat,$interval服务，以及与bootstrap的结合，两个ng-model之间的通信)</h4>
+        <div ng-controller="myTodoListCtrl">
+            <h4 class="mytime">时间：{{ tempTime }}</h4>
+            <hr style="clear: both;">
+            <div class="myform">
+                <form ng-submit="todoAdd()" role="form">
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-2 col-md-2">
+                            <label for="todo">输入任务： </label>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-8 col-md-8">
+                            <input name="todo" type="text" ng-model="todoInput" class="form-control" placeholder="新增">
+                        </div>
+                        <div class="col-xs-4 col-sm-2 col-md-2">
+                            <input type="submit" value="新增" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div>
+                <div ng-repeat="x in todoList">
+                    <input type="checkbox" ng-model="x.tDone"> <span ng-bind="x.todoText"></span>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <div ng-repeat="y in doneList">
+                    <input type="checkbox" class="" ng-model="y.cDone">
+                    <span ng-bind="y.doneText"></span>
+                </div>
+            </div><br>
+
+            <div><button ng-click="completed()" class="btn btn-success">已完成</button></div>
+        </div>
+
+        <hr>
+        <!-- 计算器部分 -->
+        <h4 class="title02">第二个应用： 较完整的表单校验()</h4>
+        <hr>
+        <div ng-controller="myFormCtrl">
+            <div>
+                <form action="" novalidate name="myForm" role="form">
+                    Username : <input type="text" ng-model="username" name="username" required> 您的用户名是 {{ username }}
+                    <span style="color: red;" ng-show="myForm02.username.$dirty && myForm02.username.$invalid">
+                    <span ng-show="myForm02.username.$error.required">用户名是必须的!</span>
+                    </span><br> Password : <input type="password" ng-model="password" name="password" required> 您的密码是 {{
+                    password }}
+                    <span style="color: red;" ng-show="myForm02.password.$dirty && myForm02.password.$invalid">
+                    <span ng-show="myForm02.password.$error.required">密码不能为空!</span>
+                    </span><br> Email : <input type="email" ng-model="email" name="email" required> 您的邮箱是 {{ email }}
+                    <span style="color: red;" ng-show="myForm02.email.$dirty && myForm02.email.$invalid">
+                    <span ng-show="myForm02.email.$error.required">邮箱不能为空！</span>
+                    <span ng-show="myForm02.email.$error.email">邮箱格式错误！</span>
+                    </span><br>
+
+                    <p>复选框</p>
+                    Check to Show The Hidden Message : <input type="checkbox" ng-model="myVar">
+                    <h2 ng-show="myVar">Aco 真帅</h2>
+                    <p>单选框</p>
+                    <input type="radio" ng-model="myVar2" value="Aco">Aco
+                    <input type="radio" ng-model="myVar2" value="TXL">TXL
+                    <input type="radio" ng-model="myVar2" value="Eric">Eric
+
+                    <div ng-switch="myVar2">
+                        <div ng-switch-when="Aco">
+                            <p>您选择的是 Aco </p>
+                        </div>
+                        <div ng-switch-when="TXL">
+                            <p>您选择的是 TXL </p>
+                        </div>
+                        <div ng-switch-when="Eric">
+                            <p>您选择的是 Eric </p>
+                        </div>
+                    </div>
+
+                    <p>下拉框</p>
+                    <select name="" id="" ng-model="myVar2">
+                    <option value=""></option>
+                    <option value="Aco">Aco</option>
+                    <option value="TXL">TXL</option>
+                    <option value="Eric">Eric</option>
+                </select><br><br>
+
+                    <input type="submit" ng-disabled="myForm02.username.$dirty && myForm02.username.$invalid || myForm02.password.$dirty && myForm02.password.$invalid || myForm02.email.$dirty && myForm02.email.$invalid">
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        var app = angular.module('myApp', ['ngAnimate', 'ngRoute']);
+        app.controller('myTodoListCtrl', function ($scope, $interval) {
+            // time
+            $scope.tempTime = new Date().toLocaleTimeString();
+            // console.log($scope.tempTime);
+            $interval(function () {
+                $scope.tempTime = new Date().toLocaleTimeString();
+            }, 1000);
+
+            // todoList
+            $scope.todoList = [{
+                todoText: "默认： Hello Aco！",
+                tDone: false
+            }];
+
+            // doneList
+            $scope.doneList = [{
+                doneText: "默认已完成",
+                cDone: true
+            }];
+            // 添加任务
+            $scope.todoAdd = function () {
+                $scope.todoList.push({
+                    todoText: $scope.todoInput,
+                    tDone: false
+                });
+                $scope.todoInput = "";
+            };
+            // 已完成
+            $scope.completed = function () {
+                var oldList = $scope.todoList;
+                $scope.todoList = [];
+                angular.forEach(oldList, function (x) {
+                    if (!x.tDone) {
+                        $scope.todoList.push(x);
+                    } else {
+                        $scope.doneList.push({
+                            doneText: x.todoText,
+                            cDone: true
+                        });
+                    }
+                });
+            };
+
+            // ****************************************** 完整表 Controller ***********
+            app.controller("myFormCtrl", function($scope) {
+                $scope.username = 'Aco'
+            });
+
+
+        });
+    </script>
+
+</body>
+
+</html>

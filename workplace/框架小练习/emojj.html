@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emojj</title>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+</head>
+<body>
+    <div class="em em-trollface" style=" height: 100px; width: 100px; background-color: red;"></div>
+    <i class="em em-trollface"></i>
+    <i class="em em-angry"></i>
+    <i class="em em-apple"></i>
+    <i class="em em-astonished"></i>
+    <i class="em em-blush"></i>
+    <i class="em em-confounded"></i>
+    ......
+    
+    <div id="outer">
+hello
+</div>
+<script>
+Object.prototype.outerHTML = function(){
+var innerCon = this.innerHTML, //获得里面的内容
+outerCon = this.appendChild(innerCon); //添加到里面
+//alert(outerCon); 
+}
+function $(id){
+return document.getElementById(id);
+}
+alert($('outer').innerHTML+"in");
+alert($('outer').outerHTML+"out");
+</script>
+    
+</body>
+</html>

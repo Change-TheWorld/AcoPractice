@@ -1,0 +1,138 @@
+一、Javascript概述(知道)
+	a.一种基于对象和事件驱动的脚本语言
+	b.作用： 给页面添加动态效果
+	c.历史： 原名叫做livescript.W3c组织开发的标准叫ECMAscipt.
+	d.特点：
+		  1). 弱势语言
+		  2). 由浏览器直接解析执行。（函数不能直接执行）
+		  3). 是一个解释性语言
+	      4). 交互性（它可以做的就是信息的动态交互）
+	      5). 安全性（不允许直接访问本地硬盘）
+	      6). 跨平台性（只要是可以解释Js的浏览器都可以执行，和平台无关
+	e . javascript和java的一些区别：
+		  1). javascript是一个解释性语言,java是编译解释性语言
+	      2). javascript是一个弱势语言，Java是一个强势语言
+	      3). 在页面上引入的方式不同javascript代表用<script>引入，Java代码<%>
+	      4). JS是基于对象，Java是面向对象。
+
+二、JavaScript语言组成(了解)
+     EcMAScript  + BOM + DOM 
+		ECMAScript: 规定了一些语法，变量，for循环等等结构
+	    BOM: Browser  object  Model 浏览器对象模型
+	    DOM: Document  object  Model 文档对象模型
+		
+三、JavaScript与Html的结合方式(掌握)
+	Javascript与HTML的结合方式有三种：
+		1.采用事件来调用，代码写在字符串中
+			<button onclick = "alert('大家好')">点击</button>
+		2.采用定义函数的方式: 用function来定义函数 
+			function fun(){ alert('你好')} ;
+		3.采用外部js文件.
+			利用<script src = "a.js"></script>引入
+
+四、JavaScript基本语法(掌握)
+
+	* 定义变量：采用var关键字来定义.定义的变量的类型是由给定的值来决定的。
+	* 数据类型： undifined,表示未定义类型。
+				 Number类型。代表了一切数字类型
+				 String类型。字符串类型
+				 Boolean类型。布尔类型
+				 Function类型。函数类型
+				 Null类型。	  
+				 object ：对象类型.
+    * 判断变量的类型 : 
+		    1. 采用typeof函数判断 :typeof(a) == "string"
+		    2. 采用instanceof运算符： a instanceof String
+
+	* 三大结构
+		a.顺序结构
+		b.选择结构
+		c.循环结构 for,while,do...while
+
+    * 运算符
+		1.一元运算符 +(正号) -  ++ -- 
+		2.二元运算符 +(加法) - * / %
+		3.三元运算符 ？ ：
+		4.等号  == 判断的是内容,
+				=== 全等于 ,判断类型和内容
+
+    * 类型的转换
+		1. Number转String : 3 + ""
+		2. Number转Boolean ：在javascript中，非0为真，0为假。如果变量为null或者undefined，也为假.
+		3. String转Number:
+				a. parseInt,parseFloat
+				b. 乘以1即可
+
+五、JavaScript 函数的定义（掌握）
+	* 函数的定义有三种方式： 
+		1.采用function关键字来定义
+		2.采用匿名的方式来定义
+		3.采用new Function()的方式(了解,不推荐)
+
+	* 函数的调用：
+		1.函数调用的时候参数可以传递多个，可以和函数定义的形参个数不符合
+		2.如果函数重名了，那么调用的时候一定是调用最后一个，与参数无关。
+	*** 推荐： 定义函数的不要重名。
+	函数劫持：
+			改变函数本身的作用.
+				
+六、JavaScript 全局函数(掌握)
+	全局函数：
+		1.isNaN (掌握)：用来判断变量是否是数字类型的字符串
+			NaN: not a Number ,不是一个数字
+		2.parseInt,parseFloat
+		3.eval(掌握): 把字符串转换成数字
+		4.escape(): 编码
+		5.unescape(): 解码
+		6.encodeURI(): 对网址（URL）进行编码
+		7.decodeURI(): 对网址（URL）进行解码
+		
+七、JavaScript常用对象介绍（掌握）
+	* Array对象 数组对象，进行数组操作
+		定义方式
+			1.采用new的方式
+			2.采用中括号[]来定义
+				数组的长度可以随时改变
+				
+		特点： 
+			1.javascript中数组的大小可以随时改变
+			2.javascript中数组的下标可以是任意对象。
+
+		方法： 
+			1.join() : 把数组的所有元素放入一个字符串. 默认用逗号连接
+			2.push() : 向数组的末尾添加一个元素
+			4.reverse() :反转
+			3.shift() : 删除并返回数组的第一个元素
+			4.sort() ; 排序 .默认同类型的数据相比较.
+			
+	* String对象 ----- 字符串类型的引用类型
+		String对象： 
+			方式：	substr: 截取字符串 两个参数第一个是下标，第二个是长度
+					substring: 截取字符串 两个参数第一个是下标，第二个是下标
+					toUppercase:
+					toLowercase:
+					indexOf:
+					charAt() :
+					replace():
+	* Number对象 ---- 数字原始类型引用类型
+			Num对象：
+					1. random() : 获得随机数[0,1)
+					2. ceil() : 返回大于等于次数的最大整数
+					3. floor() : 返回小于等于次数的最大整数
+					4. round(): 返回四舍五入后的整数
+	* Boolean对象 ---- 布尔原始类型引用类型 
+	* Math对象 执行数学任务
+	* Date对象 用于处理日期和时间
+		Date对象： 代表一个时间
+				方法： getXXX() : 拿到年月日
+	* RegExp 对象正则表达式对象 
+		正则表达式
+			写法： 1. new的方式   var r = new RegExp("ab") ;
+			       2. 采用/正则表达式/ (推荐)  var r = /ab/ ;
+
+
+
+
+
+
+

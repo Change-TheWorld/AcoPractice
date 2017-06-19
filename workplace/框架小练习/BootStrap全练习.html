@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>BootStrap练习</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+</head>
+
+<style>
+    /** 超小型设备(默认，手机，<768px)*/
+    
+    /** 小型设备平-> 平板电脑，<992px*/
+    @media(min-width: @screen-sm-min)and @media(max-width: @screen-sm-max){
+        
+    }
+    
+    /** 中型设备-> 992px<台式电脑<1200px)*/
+    @media(min-width: @screen-md-min) {
+        
+    }
+    
+    /** 大型设备-> 大台式电脑，1200px起步*/
+    @media(min-width: @screen-lg-min) {
+        
+    }
+    
+</style>
+
+<body>
+    <div class="container">
+       
+       <i class="em em-trollface"></i>
+       <div style=" height: 100px; width: 100px; background-color: red; border: 1px solid red;"></div>
+        <div class="jumbotron">
+            <h1>我的第一个页面</h1>
+            <p>重置窗口大小</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>haha</p>
+            </div>            
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>haha</p>
+            </div>            
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>haha</p>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th> 
+                        <th>Name</th>
+                        <th>Street</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>he</td>
+                        <td>he</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>ha</td>
+                        <td>ha</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>huo</td>
+                        <td>huo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="buttons">
+            <button type="button" class="btn btn-default btn-block active disabled">Hello</button>
+            
+        </div>
+        <hr>
+        <label for="">三种表单格式，垂直，内联，水平</label>
+        <div class="forms">
+            <form action="" role="form">
+                <div class="form-group">
+                    <label for="name">名称</label>
+                    <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                </div>
+                <div class="form-group">
+                    <label for="inputfile">文件输入</label>
+                    <input type="file" id="inputfile">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">  请打勾
+                    </label>
+                </div>
+                <button class="btn btn-default" type="submit">提交</button>
+            </form>
+            <hr>
+            <form action="" class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="name"></label>
+                    <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                </div>
+                <div class="form-group">
+                    <label for="inoutfile" class="sr-only">文件输入</label>
+                    <input type="file" id="inputfile">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">
+                    </label>
+                </div>
+                <button class="btn btn-default">提交</button>
+            </form>
+            
+            <hr>
+            <form action="" class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="firstname" class="col-sm-2 control-label">名字</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" id="firstname" 
+                        placeholder="请输入名字">
+                  </div>
+               </div>
+            
+                <div class="form-group">
+                  <label for="lastname" class="col-sm-2 control-label">姓</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" id="lastname" 
+                        placeholder="请输入姓">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <div class="checkbox">
+                        <label>
+                           <input type="checkbox"> 请记住我
+                        </label>
+                     </div>
+                  </div>
+               </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <button type="submit" class="btn btn-default">登录</button>
+                  </div>
+               </div>
+            </form>
+            <hr>
+            <label for="">各种表单输入</label>
+            <form action="" role="form">
+                <div class="form-group">
+                    <label for="name">标签</label>
+                    <input type="date" class="form-control" placeholder="date">
+                    <input type="datetime" class="form-control" placeholder="datetime">
+                    <input type="datetime-local" class="form-control" placeholder="datetime-local">
+                    <input type="text" class="form-control" placeholder="text">
+                    <input type="password" class="form-control" placeholder="password">
+                    <input type="email" class="form-control" placeholder="email">
+                    <input type="tel" class="form-control" placeholder="tel">
+                    <input type="number" class="form-control" placeholder="">
+                    <input type="search" class="form-control" placeholder="search">
+                    <input type="color" class="form-control" placeholder="color">
+                    <input type="url" class="form-control" placeholder="url">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="name">
+                        <textarea name="" id="name" cols="" rows="3" class="form-control"></textarea>
+                    </label>
+                </div>
+                
+                <label for="name">默认复选框和单选框实例</label>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">选项一</label>
+                </div>                
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">选项二</label>
+                </div>
+                
+                <div class="radio">
+                    <label for="">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>选项一
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项二
+                    </label>
+                </div>
+                <hr>
+                <label for="">内联复选和单选实例</label>
+                <div>
+                    <label for="" class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">选项一
+                    </label>
+                    <label for="" class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option2">选项二
+                    </label>
+                    <label for="" class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option3">选项三
+                    </label>
+                    
+                    <label for="" class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios3" checked>选项一
+                    </label>
+                    <label for="" class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios4">选项二
+                    </label>
+                    
+                </div>
+                <hr>
+                <label for="">选择框</label>
+                <select name="" id="" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select name="" id="" class="form-control" multiple>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <hr>
+                
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">
+                     禁用
+                  </label>
+                  <div class="col-sm-10">
+                     <input class="form-control" id="disabledInput" type="text" placeholder="该输入框禁止输入..." disabled>
+                  </div>
+               </div>
+                
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label" for="inputSuccess">
+                     输入成功
+                  </label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" id="inputSuccess">
+                     <span class="help-block">一个较长的帮助文本块，超过一行，需要扩展到下一行。本实例中的帮助文本总共有两行。</span>
+                  </div>
+               </div>
+            </form>
+        </div>     
+             
+        <hr>
+        <label for="">表格</label>
+        <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
+            <caption>基本表格布局</caption>
+            <thead>
+                <th>名称</th>
+                <th>城市</th>
+                <th>密码</th>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td>Aco</td>
+                    <td>武汉</td>
+                    <td>123</td>
+                </tr>
+                <tr class="success">
+                    <td>Eric</td>
+                    <td>湖北</td>
+                    <td>123</td>
+                </tr>
+                <tr class="danger">
+                    <td>风满楼</td>
+                    <td>鲁磨路</td>
+                    <td>123</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr>
+        <label for="">代码区</label>
+        <code>&lt;header&gt;</code>
+        <pre>
+            &lt;article&gt;
+                &lt;h1&gt;Article Heading&lt;/h1&gt;
+            &lt;/article&gt;
+        </pre>
+        
+        <hr>
+        <label for="">辅助</label>
+        <p>插入符实例
+            <span class="caret"></span>
+        </p>
+        <p>关闭图标
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+        </p>
+        
+        <div class="pull-left">
+           向左快速浮动
+        </div>
+        <div class="pull-right">
+           向右快速浮动
+        </div>
+
+      <br><br>
+      
+       <blockquote>
+           这是一个带有源标题的引用。 <small>haha</small>
+       </blockquote>
+        
+        <hr>
+        <label for="">列表</label>
+        <h4>有序列表</h4>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <h4>无序列表</h4>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        
+        <h4>内联列表</h4>
+        <ul class="list-inline">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <h4>定义列表</h4>
+        <dl>
+            <dt>描述1</dt>
+            <dd>test1</dd>
+            <dt>描述2</dt>
+            <dd>test2</dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>描述1</dt>
+            <dd>test1</dd>
+            <dt>描述2</dt>
+            <dd>test2</dd>
+        </dl>
+        
+        <hr>
+        <p class="lead">hhhhhhhhhhhhhhhhhhhhhhh</p>
+        <p class="small">hhhhhhhhhhhhhhhhhhhhhhh</p>
+        <p class="text-left">hhhhhhhhhhhhhhhhhhhhhhh</p>
+        <p class="text-right">hhhhhhhhhhhhhhhhhhhhhhh</p>
+        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam non pariatur aut velit porro, repellat aliquam optio, excepturi repellendus cupiditate recusandae sapiente cumque nemo laborum perferendis? Esse porro natus ea.</p>
+        <p class="text-nowrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ad, architecto at facilis dolore odio dignissimos, pariatur repellendus fugit. Dolorum, vero mollitia illo, aspernatur amet atque sint deleniti saepe ut.</p>
+        <p class="text-lowercase">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit distinctio iusto temporibus nisi, optio nostrum ab recusandae tempora quo sint, aliquid quia praesentium culpa nihil quibusdam. Quisquam doloremque, quas optio.</p>
+        <p class="text-uppercase">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor itaque asperiores, impedit facere ipsam cupiditate possimus, suscipit soluta ea ratione ipsa assumenda voluptas, corrupti quaerat et quas ipsum eligendi odio!</p>
+        <p class="text-capitalize">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor itaque asperiores, impedit facere ipsam cupiditate possimus, suscipit soluta ea ratione ipsa assumenda voluptas, corrupti quaerat et quas ipsum eligendi odio!</p>
+        <pre class="pre-scrollable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt provident, sit non ex reiciendis maxime at nemo repudiandae omnis voluptatum impedit rem perspiciatis eligendi, laborum blanditiis tenetur labore tempore dolorum.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ahaha</pre>
+        
+        <hr>
+        <label for="">图片</label>
+        <img class="img-rounded" src="./images/01.jpeg" alt="" height="100" width="100">
+        <img class="img-circle" src="./images/02.jpg" alt="" height="100" width="100">
+        <img class="img-thumbnail" src="./images/03.png" alt="" height="100" width="100">
+        <img class="img-responsive" src="./images/05.png" alt="" height="100" width="100">
+        
+    </div>
+    
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css"></script>
+ 
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+</body>
+</html>

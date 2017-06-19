@@ -1,0 +1,72 @@
+﻿一、回顾
+	
+二、单元测试
+	* 搭建环境： 在工程中引入junit包
+		* 测试方法：
+			1. 测试方法必须是公有的
+			2. 测试方法必须返回值是void
+			3. 测试方法必须加@Test
+			4. 测试方法没有形参
+		
+		@Test : 代表测试方法
+			参数timeout: 指定执行方法所需最多时间(毫秒)
+			expected: 指定方法会出现的异常类型（用元类表示）
+		@Before : 执行每个测试方法之前都要执行的方法
+		@BeforeClass: 
+		@After  : 执行每个测试方法之后都要执行的方法
+		
+三、断点调试
+		断点： 让程序执行到断点时停下来。
+		
+四、Dom4j解析(掌握)
+		* document的方法： 
+					elements() : 拿到节点的所有子节点
+					elements(String) : 拿到指定名字的所有的子节点
+					element(String) : 拿到指定名字的子节点
+		* Element节点的方法：
+					setText() : 设置标签节点的内容
+					getTest() : 获得标签节点的内容
+					addAttibute(String name ,String value ) : 添加标签的属性
+					removeAttribute(String name) : 删除某个属性
+					
+		
+		* XPath: 主要作用是获取某个节点的路径 。
+				 示例：参见帮助
+		
+五、Schema(掌握如何引入一个schema文件)
+	* 名称空间 : 指的是一个环境,所用的标签来自于哪个环境定义的。
+	* 掌握引用schema文件： 
+			xml中引入schema约束的步骤：
+				1、查看schema文档，找到根元素，在xml中写出来
+							<?xml version="1.0" encoding="UTF-8"?>
+							<书架>
+ 
+							</书架>
+							
+				2、根元素来自哪个名称空间。使用xmlns指令来声明
+						名称空间是在schema中定义的，就是targetNamespace的值
+ 
+						<?xml version="1.0" encoding="UTF-8"?>
+						<itcast:书架
+								xmlns:itcast="http://www.itcast.com/book">
+ 
+						</itcast:书架>
+						
+				3、引入的名称空间根哪个xsd文件对应？
+				使用schemaLocation来指定：两个取值：第一个为名称空间 第二个为xsd文件的路径
+				 
+				<?xml version="1.0" encoding="UTF-8"?>
+				<itcast:书架 xmlns:itcast="http://www.itcast.com/book"
+					schemaLocation="http://www.itcast.com/book book.xsd">
+				 
+				</itcast:书架>
+				
+				4、schemaLocation哪里来的？它来自一个标准的名称空间,直接复制黏贴即可.
+					<?xml version="1.0" encoding="UTF-8"?>
+						<itcast:书架 xmlns:itcast="http://www.itcast.com/book"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xsi:schemaLocation="http://www.itcast.com/book book.xsd">
+					 
+					</itcast:书架>
+					
+				5、只要以上4部搞好了，对于子标签myeclipse就有提示了

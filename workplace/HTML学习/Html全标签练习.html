@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Html全标签练习">
+    <meta name="keywords" contents="HTML">
+    <meta name="author" content="Aco">
+    <link rel="short icon" type="X-icon" href="../../resources/images/Aco_favicon.ico">
+    <title>HTML标签全练习</title>
+    
+    <link ref="stylesheet" type="text/css" href="../../resources/css/1.css">
+</head>
+
+<style>
+    .mytitle{
+        color:chocolate;
+    }
+</style>
+
+<body>
+    <p class="mytitle">* 标题</p>
+    <h1>这是1号标题</h1>
+    <font size="6"><strong>这是6号字体文本</strong></font>
+
+    <h2>这是2号标题</h2>
+    <font size="5"><strong>这是5号字体文本</strong></font>
+
+    <h3>这是3号标题</h3>
+    <font size="4"><strong>这是4号字体文本</strong></font>
+
+    <h4>这是4号标题</h4>
+    <font size="3"><strong>这是3号字体文本</strong></font>
+
+    <h5>这是5号标题</h5>
+    <font size="2"><strong>这是2号字体文本</strong></font>
+
+    <h6>这是6号标题</h6>
+    <font size="1"><strong>这是1号字体文本</strong></font>
+
+    <hr>
+    <p class="mytitle">* 显示唐诗</p>
+    <h1>春晓</h1>
+    <p>
+    春眠不觉晓，
+      处处闻啼鸟。
+        夜来风雨声，
+          花落知多少。
+    </p>
+    <p>注意，浏览器忽略了源代码中的排版（省略了多余的空格和换行）。用 pre 标签就 OK </p>
+    <pre>
+        春眠不觉晓，
+            处处闻啼鸟。
+                夜来风雨声，
+                    花落知多少。
+    </pre>
+
+    <hr>
+    <p class="mytitle">* 显示地址</p>
+    <address>
+    Create By <a href="http://www.erictxl.cn/">Aco</a>.<br>
+    Example.com <br>
+    </address>
+
+    <hr>
+    <p class="mytitle">* HTML 文本格式化</p>
+
+    <p class="mytitle">* 小号字体</p>
+    <small>哈哈哈</small>
+
+    <p class="mytitle">* 粗体，strong 标签(推荐)或者 b 标签</p>
+    <strong>Aco</strong>
+
+    <p class="mytitle">* code 标签</p>
+    <code>电脑自动输出</code>
+
+    <p class="mytitle">* 斜体，em 标签(推荐)或者 i 标签</p>
+    <em>Aco</em>
+    
+    <p class="mytitle">* 改变文字显示方向</p>
+    <p><bdo dir="rtl">你好我是 Aco</bdo></p>
+    
+    <p class="mytitle">* 下标 (sub) 和上标 (sup) </p>
+    这是 <sub>下标</sub>和 <sup>上标</sup> 例如：log<sub>2</sub>n  ; a<sup>2</sup>
+
+    <p class="mytitle">* 缩写abbr(对于 Netscape 6.2中的 abbr 和 acronym 有效，IE：仅对 IE5 的 acronym 元素有效)</p>
+    <abbr title="World Wide Web">WWW</abbr><br>
+    <acronym title="World Wide Web">WWW</acronym>
+
+    <p class="mytitle">* 删除字 (del) </p>
+    <del>放弃</del>是不可原谅的！
+
+    <p class="mytitle">* 引用，长引用 (blockquote) , 短引用 (q) , 定义引用(cite(标签定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。注释：人名不属于作品的标题。)), blockquote 标签定义摘自另一个源的块引用。浏览器通常会对 
+blockquote 元素进行缩进。</p>
+    <blockquote>我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用
+        我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是引用我是</blockquote>
+        <q>我是短引用</q>
+    <p><cite>The Photo</cite> is Created By Aco</p>
+
+    <p class="mytitle">* 链接，图片链接，邮件链接，锚点</p>
+    <a href="http://www.bilibili.com/">bilibili</a><br>
+    <a href="http://www.bilibili.com/"><img src="http://wx1.sinaimg.cn/mw690/006xRFa6gy1fg9fdwn18ej30p60yyaso.jpg" alt="图片链接" width="50" height="50"></a><br>
+    <a href="mailto:2362131690@qq.com?Subject=Hello%20Worldbody=hello%20Aco">发邮件给QQ小号</a><br>
+
+    <a id="tip">顶部</a>
+    <pre>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
+    <a href="#tip">回到顶部</a>
+
+
+    <br>
+    <hr>
+    <p class="mytitle">* Html 设置样式(功能有限，更多的还是要靠css)</p>
+    <div style="padding: 20px;border: 10px solid yellow; border-radius: 10px;width: 150px;">
+        <div style="color: aqua;">
+            Hello <span style="background-color: blueviolet; color: #ffffff; letter-spacing: 12px;">Aco</span>
+        </div>
+    </div>
+    <div style="position: absolute;margin-top: -100px; background-color: aqua;width: 200px;height: 100px;opacity: 0.5;"></div>
+    <hr style="color: red; size: 5px;"> 
+    <p class="mytitle">* 字体标签</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; color: red; font-size: 30px;">你好</p>
+    <p class="mytitle">* 文本对齐，text-align</p>
+    <p style="text-align: center;">嘿嘿</p>
+    <hr>
+    <p class="mytitle">* 图像,热点问题(img属性里的usemap)</p>
+    <img src="http://wx1.sinaimg.cn/mw690/006xRFa6gy1fg9fdwn18ej30p60yyaso.jpg" alt="图片" width="100" height="100">
+
+    <img src="http://wx1.sinaimg.cn/mw690/006xRFa6gy1fg9fcz2m8kj31kw11z483.jpg" alt="热点问题" width="200" height="200" usemap="#mymap">
+
+    <map name="mymap">
+        <area shape="rect" coords="0,0,50,50" href="http://www.baidu.com/" target="_blank" alt="baidu">
+        <area shape="circle" coords="100,100,10" href="http://www.bilibili.com/" alt="bilibili" target="_blank">
+    </map>
+    <hr>
+    <p class="mytitle">* 表格,默认无边框</p>
+    <table border="1" cellspacing="5" cellpadding="10">
+        <caption>表格测试(ง•_•)ง</caption>
+        <colgroup>
+            <col style="background-color:red;">
+            <col style="background-color: yellow;">
+            <col style="background-color: aqua;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>第一列</th>
+                <th colspan="2">第二列</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td rowspan="2">4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>apples</li>
+                        <li>bananas</li>
+                        <li>pineapples</li>
+                    </ul>
+                </td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <p class="mytitle">* 制作一张课程表吧</p>
+    <table border="1" style="border: 1px solid aqua;" cellspacing="2" cellpadding="15">
+        <caption>课程表</caption>
+        <thead>
+            <th>时间\日期</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+        </thead>
+        <tr>
+            <td rowspan="2">上午</td>
+            <td>语</td>
+            <td>数</td>
+            <td></td>
+            <td>理</td>
+            <td>化</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>数</td>
+            <td>外</td>
+            <td>语</td>
+            <td>数</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="8"></td>
+            
+        </tr>
+        <tr>
+            <td rowspan="2">下午</td>
+            <td>数</td>
+            <td>语</td>
+            <td>物</td>
+            <td></td>
+            <td>语</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>理</td>
+            <td>数</td>
+            <td>化</td>
+            <td>数</td>
+            <td>化</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <hr>
+    <p class="mytitle">* 列表(有序和无序)每个例子都要换行...所以我加了style="display: inline-block;"</p>
+    <div>
+    <ul style="display: inline-block; list-style-type: disc;">
+        <li>哈</li>
+        <li>哈哈</li>
+        <li>哈哈哈</li>
+    </ul>
+    <ul style="display: inline-block; list-style-type: circle;">
+        <li>哈</li>
+        <li>哈哈</li>
+        <li>哈哈哈</li>
+    </ul>
+    <ul style="display: inline-block; list-style-type: square;">
+        <li>哈</li>
+        <li>哈哈</li>
+        <li>哈哈哈</li>
+    </ul>
+    </div>
+    <div style="display: inline-block;">
+        <ol start="10" style="display: inline-block;">
+            <li>哈</li>
+            <li>哈哈</li>
+            <li>哈哈哈</li>
+        </ol>
+        <ol type="A" style="display: inline-block;">
+            <li>哈</li>
+            <li>哈哈</li>
+            <li>哈哈哈</li>
+        </ol>
+        <ol type="a" style="display: inline-block;">
+            <li>哈</li>
+            <li>哈哈</li>
+            <li>哈哈哈</li>
+        </ol>
+        <ol type="I" style="display: inline-block;">
+            <li>哈</li>
+            <li>哈哈</li>
+            <li>哈哈哈</li>
+        </ol>
+    </div>
+
+    <p class="mytitle">* 嵌套列表</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea
+                    <ul>
+                        <li>China</li>
+                        <li>Africa</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <p class="mytitle">* 自定义列表</p>
+    <dl>
+        <dt>Aco</dt>
+            <dd>- me</dd>
+        <dt>Eric</dt>
+            <dd>- old me</dd>
+    </dl>
+
+    <hr>
+    <p class="mytitle">* 网页的布局一：使用div</p>
+    <div id="container" style="width: 500px;">
+        <div id="header" style="background-color: darkorange;">
+            <h1 style="text-align: center; margin-bottom: 0px;">网站标题</h1>
+        </div>
+        <div id="menu" style="background-color: yellow; height: 200px; width: 120px; float: left;">
+            <strong>菜单</strong>
+            <ul style="list-style-type: none; margin-top: 0px;">
+                <li>子菜单1</li>
+                <li>子菜单2</li>
+                <li>子菜单3</li>
+                <li>子菜单4</li>
+            </ul>
+        </div>
+        <div id="content" style="background-color: antiquewhite; height: 200px; width: 380px; float: left;">
+            <h1 style="text-align: center; vertical-align: middle;">内容</h1>
+        </div>
+        <div id="footer" style="background-color: blueviolet; clear: both; text-align: center;">
+            Author: Aco
+        </div>
+    </div>
+
+    <hr>
+    <p class="mytitle">* 网页布局二： 使用table</p>
+    <table width="500" border="0">
+        <tr>
+            <td colspan="2" style="background-color: darkorange">
+                <h2 style="text-align: center;">网站标题</h2>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: yellow; height: 200px; width: 120px; vertical-align: top;">
+                <strong>菜单</strong>
+                <ul style="list-style-type: none; margin-top: 0px;">
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单4</li>
+                </ul>
+            </td>
+            <td style="background-color: antiquewhite; height: 200px; width: 380px; vertical-align: top;">
+                <h1 style="text-align: center; vertical-align: middle;">内容</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: blueviolet; text-align: center;">Author: Aco</td>
+        </tr>
+    </table>
+    
+    <hr>
+    <p class="mytitle">* 表单</p>
+    <form action="" >
+        Username: <input type="text" name="username" value=""><br>
+        Password: <input type="password" name="password"><br>
+        性别： 
+        <input type="radio" name="sex" value="Male">
+        <input type="radio" name="sex" value="FeMale"><br>
+        爱好：
+        <input type="checkbox" name="hobby" value="Bracket">I like Bracket!
+        <input type="checkbox" name="hobby" value="Run">I like Run! <br>
+        下拉框选择： 
+        <select name="cars" id="">
+            <optgroup label="Big Cars" disabled>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+            </optgroup>
+            <optgroup label="Small Cars">
+                <option value="fiat">Fiat</option>
+                <option value="audi" selected>Audi</option>
+            </optgroup>
+        </select><br>
+
+        <textarea rows="6" cols="80" placeholder="请输入您的个人简介吧,限50个字符哦 " maxlength="50"></textarea>
+        <input type="button" value="hello">
+        <p class="mytitle">* fieldset的应用</p>
+        <fieldset>
+            <legend>个人信息</legend>
+            Name: <input type="text" size="30">
+            E-mail: <input type="text" size="30">
+            Date of birth: <input type="text" size="10">
+        </fieldset>
+        <p class="mytitle">* datalist的应用</p>
+
+        <input type="text" list="mydata">
+        <datalist id="mydata">
+            <option value="haha"></option>
+            <option value="huohuo"></option>
+            <option value="heihei"></option>
+            <option value="enen"></option>
+            <option value="hehe"></option>
+        </datalist>
+
+        <br> <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+    <p class="mytitle">* iframe的应用</p>
+    <iframe src="http://www.bilibili.com/" width="600" height="200" frameborder="0"></iframe>
+    <p  class="mytitle">* 使用iframe来显示目标链接页面</p>
+    <p><a href="http://www.bilibili.com/" target="iframe-a">链接到哔哩哔哩</a></p>
+    <iframe name="iframe-a" width="600" height="200">将会显示哔哩哔哩</iframe>
+
+    <p class="mytitle">* html颜色测试</p>
+    <p> 
+        <span style="color: crimson;">C</span>
+        <span style="color: green;">h</span>
+        <span style="color: rgb(0,0,255);">a</span>
+        <span style="color: #FF00FF;">n</span>
+        <span style="color: #888888;">g</span>
+        <span style="color: aqua;">e</span>&nbsp;&nbsp;
+        <span style="color: brown;">T</span>
+        <span style="color: darkviolet;">h</span>
+        <span style="color: #D2691E;">e</span>&nbsp;&nbsp;
+        <span style="color: red;">W</span>
+        <span style="color: orange;">o</span>
+        <span style="color: yellow;">r</span>
+        <span style="color: green;">l</span>
+        <span style="color: blue;">d</span>
+        <span style="color: purple;">!</span>
+    </p>
+
+    <hr>
+    <p class="mytitle">* html脚本简单测试</p>
+    <p id="script-test01">Hello</p>
+    <script>
+        // alert("haha");
+        var test01 = document.getElementById("script-test01");
+        test01.innerHTML = "Hello ,I'm Aco~";
+        test01.style.color = "red";
+    </script>
+    <noscript>
+        很抱歉，您的浏览器不支持JavaScript，请及时升级您的浏览器哦~
+    </noscript>
+
+    <hr>
+    <p class="mytitle">* html字符实体</p>
+
+    <xmp>
+              实体名称   	
+        空格：    &nbsp;    
+        小于号<： &lt;
+        大于号>： &gt;
+        和号&：   &amp;
+        引号：    &quot;
+        撇号：    &apos;
+        人民币：  &yen;
+        欧元：    &euro;
+        小节：    &sect;
+        版权：    &copy;
+        注册商标：&reg;
+        注册：    &trade;
+        乘号：    &times;
+        除号：    &divide;
+    </xmp>
+    <p>以上符号显示效果如下 <br>
+        空格：    &nbsp;<br>
+        小于号<： &lt;<br>
+        大于号>： &gt;<br>
+        和号&：   &amp;<br>
+        引号：    &quot;<br>
+        撇号：    &apos;<br>
+        人民币：  &yen;<br>
+        欧元：    &euro;<br>
+        小节：    &sect;<br>
+        版权：    &copy;<br>
+        注册商标：&reg;<br>
+        注册：    &trade;<br>
+        乘号：    &times; <br>
+        除号：    &divide;<br>
+    </p>
+    <hr>
+    <p>* END,下一步学习CSS</p>
+</body>
+</html>

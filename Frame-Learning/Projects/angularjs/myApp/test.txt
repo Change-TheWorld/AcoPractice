@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Demo</title>
+
+    <!-- 个人设置 -->
+    <link rel="short icon" type="x-icon" href="./Aco_favicon.ico">
+
+    <!-- JS 资源引入 -->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+
+    <!-- CSS 资源引入 -->
+    <link rel="stylesheet" href="./myAppCss.css">
+    <!--<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">-->
+
+</head>
+
+<body>
+    <div class="container" ng-app="myApp">
+        <h2> 通过几个应用实例 ，检验这几天学习的成果</h2>
+
+        <h4>第一个应用： 备忘录</h4>
+        <div ng-controller="myTodoList">
+            <!--<h4>时间：{{ tempTime }}</h4>-->
+            <div class="myform">
+                <form role="form" ng-submit="todoAdd()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                <label for="todo">输入任务： </label>
+                            </div>
+                            <div class="col-xs-6 col-sm-8 col-md-8">
+                                <input type="text" name="todo" value="" class="form-control" ng-model="todoInput">
+                            </div>
+                            <div class="col-xs-4 col-sm-2 col-md-2">
+                                <button class="btn btn-primary" type="submit">新增任务</button>
+                            </div>
+                        </div>
+                        
+                        <div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.tDone"> <span ng-bind="x.todoText"></span>
+</div>
+                            <!--<div ng-repeat="x in todoList" >
+                                <input type="checkbox" ng-model="x.tDone">
+                                <span ng-bind="x.todoText"></span>
+                            </div>-->
+                       
+                        <hr>
+                            <!--<div ng-repeat="y in doneList">
+                                <input type="checkbox" class="" ng-model="y.cDone">
+                                <span ng-bind="y.doneText"></span>
+                            </div>-->
+                        <div class="row">
+                            <button ng-click="remove()" class="btn btn-primary">已完成</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!-- 引入必要的JS文件 -->
+    <!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <script>
+        /*'ngAnimate','ngRoute'*/
+        var app = angular.module("myApp", []);
+        app.controller("myTodoList", function($scope) {
+            // time
+            //$scope.tempTime = new Date().toLocaleTimeString();
+            // console.log($scope.tempTime);
+            /*$interval(function () {
+                $scope.tempTime = new Date().toLocaleTimeString();
+            }, 1000);*/
+/*
+            // todoList 
+            $scope.todoList = [{
+                todoText: "默认：Hello World! ",
+                tDone: false
+            }];
+            // doneList
+            $scope.doneList = [{
+                doneText: "默认已完成",
+                cDone: true
+            }];
+
+            $scope.todoAdd = function() {
+                $scope.todoList.push({
+                    todoText: $scope.todoInput,
+                    tDone: false
+                });
+                // 清空输入框
+                $scope.todoInput = "";
+            };
+
+            // 清除
+            $scope.remove = function() {
+                var oldList = $scope.todoList;
+                $scope.todoList = [];
+                angular.forEach(oldList, function(x) {
+                    if(!x.tDone) {
+                        $scope.todoList.push(x);
+                    } else {
+                        
+                        $scope.doneList.push({
+                            doneText: x.todoText,
+                            c_done: x.t_done
+                        });
+                    };
+                });
+            }; 
+            */
+
+$scope.todoList = [{todoText:'Clean House', tDone:false}];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, tDone:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.tDone) $scope.todoList.push(x);
+        });
+    };
+
+        });
+    </script>
+</body>
+
+</html>

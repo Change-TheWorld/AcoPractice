@@ -1,0 +1,139 @@
+﻿一、XML的概述(了解)
+	 * eXtensible Markup Language 可扩展标记语言
+	 * 宗旨是传输数据，而非显示数据。
+	 * XML标签没有被预定义，需要用户自行定义标签。
+	 * XML技术是W3C组织(WorldWideWeConsortium万维网联盟)发布的，目前遵循的是W3C组织于2000年发布的XML1.0规范。
+	 * 作用： a. 传输数据
+			  b. 配置文件(主要用途)
+
+	 
+二、XML的语法(掌握)
+	 * <?xml version=“1.0”?> 文档声明必须出现在第一句
+	 * 一个标签有如下两种书写形式：
+		包含标签主体：<mytag>some content</mytag>
+		不含标签主体：<mytag/>
+	 * 一个XML文档必须有且仅有一个根标签
+	 * XML中不会忽略主体内容中出现的空格和换行。
+	 * 严格区分大小写
+	 * <!--这是注释-->
+	 * CDATA : 把标签当做普通文本内容；
+		 <![CDATA[
+			<itcast>www.itcast.cn</itcast>
+		 ]]>
+	 
+
+
+三、XML的约束(看懂即可,掌握引入外部约束文件的语句)
+	* DTD
+		*分类： 
+			格式良好的XML：遵循XML语法的XML
+			有效的XML：遵循约束文档的XML
+    
+	       约束文档定义了在XML中允许出现的元素名称、属性及元素出现的顺序等等。
+		   
+	     注意：dtd文档必须用utf-8编码格式保存 
+		
+		* 校验XML的有效性
+		     * 非校验解析器  参见validator.html
+			 * 校验解析器
+
+		* DTD 文件的引入：
+			当引用的DTD文档在本地时，采用如下方式：<!DOCTYPE 根元素 SYSTEM “DTD文档路径”>
+			当引用的DTD文档在公共网络上时，采用如下方式：
+					<!DOCTYPE 根元素 PUBLIC “DTD名称” “DTD文档的URL”>
+					eg : <!DOCTYPE web-app PUBLIC 
+							"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+							"http://java.sun.com/dtd/web-app_2_3.dtd">
+		
+		* DTD文件的语法
+			在DTD文档中使用ELEMENT关键字来声明一个XML元素。
+			如果子元素用逗号分开，说明必须按照声明顺序去编写XML文档。
+			如果子元素用“|”分开，说明任选其一
+			用+、*、？来表示元素出现的次数
+		    定义属性:
+			     <!ATTLIST 元素名
+					属性名1 属性值类型 设置说明
+					属性名2 属性值类型 设置说明>
+
+
+		
+	* Schema(难)
+
+四、XML的解析(掌握)
+	* 解析的方式
+		* DOM 解析(Java解析) : 利用DOM树来解析  参见 day05_DOM 项目
+		* SAX 解析 :       边加载边解析.      参见 day05_SAX项目
+		  综合应用： 参见 day06_examparser项目.
+		
+		* 解析包
+			* JAXP (sun 公司提供)
+			* DOM4j (第三方)
+	     
+		 * 单元测试
+			* 搭建环境： 在工程中引入junit包
+				* 测试方法：
+					1. 测试方法必须是公有的
+					2. 测试方法必须返回值是void
+					3. 测试方法必须加@Test
+					4. 测试方法没有形参
+				
+				@Test : 代表测试方法
+					参数timeout: 指定执行方法所需最多时间(毫秒)
+					expected: 指定方法会出现的异常类型（用元类表示）
+				@Before : 执行每个测试方法之前都要执行的方法
+				@After  : 执行每个测试方法之后都要执行的方法
+				@BeforeClass : 执行测试方法之前要执行的方法(静态的，只会执行一次)
+				@AfterClass  : 执行测试方法之后要执行的方法(静态的，只会执行一次)
+		
+		
+     * Dom4j解析(掌握)
+		* document的方法： 
+					elements() : 拿到节点的所有子节点
+					elements(String) : 拿到指定名字的所有的子节点
+					element(String) : 拿到指定名字的子节点
+		* Element节点的方法：
+					setText() : 设置标签节点的内容
+					getTest() : 获得标签节点的内容
+					addAttibute(String name ,String value ) : 添加标签的属性
+					removeAttribute(String name) : 删除某个属性
+					
+		
+		* XPath: 主要作用是获取某个节点的路径 。
+				 示例：参见帮助
+		
+五、Schema(掌握如何引入一个schema文件)
+	* 名称空间 : 指的是一个环境,所用的标签来自于哪个环境定义的。
+	* 掌握引用schema文件： 
+			xml中引入schema约束的步骤：
+				1、查看schema文档，找到根元素，在xml中写出来
+							<?xml version="1.0" encoding="UTF-8"?>
+							<书架>
+ 
+							</书架>
+							
+				2、根元素来自哪个名称空间。使用xmlns指令来声明
+						名称空间是在schema中定义的，就是targetNamespace的值
+ 
+						<?xml version="1.0" encoding="UTF-8"?>
+						<itcast:书架 xmlns:itcast="http://www.itcast.com/book">
+ 
+						</itcast:书架>
+						
+				3、引入的名称空间根哪个xsd文件对应？
+				使用schemaLocation来指定：两个取值：第一个为名称空间 第二个为xsd文件的路径
+				 
+				<?xml version="1.0" encoding="UTF-8"?>
+				<itcast:书架 xmlns:itcast="http://www.itcast.com/book"
+					schemaLocation="http://www.itcast.com/book book.xsd">
+				 
+				</itcast:书架>
+				
+				4、schemaLocation哪里来的？它来自一个标准的名称空间,直接复制黏贴即可.
+					<?xml version="1.0" encoding="UTF-8"?>
+						<itcast:书架 xmlns:itcast="http://www.itcast.com/book"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xsi:schemaLocation="http://www.itcast.com/book book.xsd">
+					 
+					</itcast:书架>
+					
+				5、只要以上4部搞好了，对于子标签myeclipse就有提示了

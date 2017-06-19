@@ -1,0 +1,780 @@
+body {
+    background: url("http://wx1.sinaimg.cn/mw690/006xRFa6gy1fg9fbwo27kj31040juhdt.jpg");
+    /*background-color: aqua;*/
+    background-repeat: no-repeat;
+    background-position: right top;
+    /*margin-right: 200px;*/
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.875em;
+}
+
+p {
+    font-size: 0.875em;
+}
+
+.mytitle {
+    color: aqua;
+    /*text-align: center;*/
+}
+
+.test-justify {
+    text-align: justify;
+}
+
+.test-text-decoration-none {
+    text-decoration: none;
+}
+
+.test-text-decoration-overline {
+    text-decoration: overline;
+}
+
+.test-text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.test-text-decoration-underline {
+    text-decoration: underline;
+}
+
+.test-text-transbform-uppercase {
+    text-transform: uppercase;
+}
+
+.test-text-transform-lowercase {
+    text-transform: lowercase;
+}
+
+.test-text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+.test-text-indent {
+    text-indent: 30px;
+}
+
+.test-letter-spacing {
+    letter-spacing: 5px;
+}
+
+.test-line-height-small {
+    line-height: 50%;
+}
+
+.test-line-height-big {
+    line-height: 200%;
+}
+
+.test-dir {
+    direction: rtl;
+}
+
+.test-word-spacing {
+    word-spacing: 30px;
+}
+
+.test-text-shadow {
+    text-shadow: 2px 2px aqua;
+}
+
+.test-font-family01 {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 1.8em;
+}
+
+.test-font-family02 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5em;
+}
+
+.test-font-weight {
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+/* 未访问链接*/
+
+.test-LVHA:link {
+    color: blue;
+    text-decoration: none;
+}
+
+
+/* 已访问链接 */
+
+.test-LVHA:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+
+/* 鼠标移动到链接上 */
+
+.test-LVHA:hover {
+    color: green;
+    text-decoration: underline;
+    font-size: 150%;
+}
+
+
+/* 鼠标点击时 */
+
+.test-LVHA:active {
+    color: red;
+    text-decoration: underline;
+}
+
+.test-a-block:link,
+.test-a-block:visited {
+    display: block;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: aqua;
+    width: 120px;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+}
+
+.test-a-block:hover,
+.test-a-block:active {
+    background-color: #7A991A;
+}
+
+.test-ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.test-ul li {
+    background-image: url('http://wx3.sinaimg.cn/mw690/006xRFa6gy1fg9fdmuqwcj301e00r0si.jpg');
+    background-repeat: no-repeat;
+    background-position: -20px 3px;
+    padding-left: 40px;
+}
+
+
+/* 所有ul，ol样式*/
+
+.test-ul-ol-style ul {
+    display: inline-block;
+}
+
+.test-ul-ol-style ol {
+    display: inline-block;
+}
+
+
+/* 空心点  */
+
+ul.a {
+    list-style-type: circle;
+}
+
+
+/* 实心点（默认）  */
+
+ul.b {
+    list-style-type: disc;
+}
+
+
+/* 方块  */
+
+ul.c {
+    list-style-type: square;
+}
+
+
+/*   */
+
+ol.d {
+    list-style-type: armenian;
+}
+
+
+/* 中文  */
+
+ol.e {
+    list-style-type: cjk-ideographic;
+}
+
+
+/* 数字  */
+
+ol.f {
+    list-style-type: decimal;
+}
+
+
+/*  数字（前缀 0） */
+
+ol.g {
+    list-style-type: decimal-leading-zero;
+}
+
+
+/*   */
+
+ol.h {
+    list-style-type: georgian;
+}
+
+
+/*   */
+
+ol.i {
+    list-style-type: hebrew;
+}
+
+
+/* 日语1  */
+
+ol.j {
+    list-style-type: hiragana;
+}
+
+
+/* 日语2  */
+
+ol.k {
+    list-style-type: hiragana-iroha;
+}
+
+
+/* 日语3  */
+
+ol.l {
+    list-style-type: katakana;
+}
+
+
+/*  日语4 */
+
+ol.m {
+    list-style-type: katakana-iroha;
+}
+
+
+/* 小写alpha  */
+
+ol.n {
+    list-style-type: lower-alpha;
+}
+
+
+/* 罗马阿尔法，贝塔  */
+
+ol.o {
+    list-style-type: lower-greek;
+}
+
+
+/* 小写latin  */
+
+ol.p {
+    list-style-type: lower-latin;
+}
+
+
+/* 意大利  */
+
+ol.q {
+    list-style-type: lower-roman;
+}
+
+
+/*  大写alpha */
+
+ol.r {
+    list-style-type: upper-alpha;
+}
+
+
+/* 大写latin  */
+
+ol.s {
+    list-style-type: upper-latin;
+}
+
+
+/* 罗马大写   */
+
+ol.t {
+    list-style-type: upper-roman;
+}
+
+
+/* 无样式  */
+
+ol.u {
+    list-style-type: none;
+}
+
+
+/* 继承  */
+
+ol.v {
+    list-style-type: inherit;
+}
+
+.test-css-table {
+    border-collapse: collapse;
+    /* border-collapse 属性设置表格的边框是否被折叠成一个单一的边框或隔开：*/
+    text-align: center;
+}
+
+.test-css-table td {
+    height: 2em;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.test-css-table th {
+    background-color: green;
+    color: white;
+    padding: 15px;
+}
+
+.test-css-table,
+th,
+td {
+    border: 1px solid aqua;
+}
+
+
+/* CSS border*/
+
+
+/*无边框。*/
+
+p.none {
+    border-style: none;
+}
+
+
+/*虚线边框。*/
+
+p.dotted {
+    border-style: dotted;
+}
+
+
+/*虚线边框。*/
+
+p.dashed {
+    border-style: dashed;
+}
+
+
+/*实线边框。*/
+
+p.solid {
+    border-style: solid;
+}
+
+
+/*双边框。*/
+
+p.double {
+    border-style: double;
+}
+
+
+/*凹槽边框。*/
+
+p.groove {
+    border-style: groove;
+}
+
+
+/*垄状边框。*/
+
+p.ridge {
+    border-style: ridge;
+}
+
+
+/*嵌入边框。*/
+
+p.inset {
+    border-style: inset;
+}
+
+
+/*外凸边框。*/
+
+p.outset {
+    border-style: outset;
+}
+
+
+/*隐藏边框。*/
+
+p.hidden {
+    border-style: hidden;
+}
+
+p.test-border {
+    border-style: solid;
+    border-width: 0px;
+    border-left-width: 10px;
+    border-left-color: blue;
+    background-color: aquamarine;
+    padding: 20px;
+}
+
+.test-display {
+    display: inline;
+}
+
+.test-display li {
+    display: inline;
+}
+
+.test-position-fixed {
+    position: fixed;
+    top: 500px;
+    right: 5px;
+    width: 20px;
+    height: 80px;
+    padding: 10px;
+    color: white;
+    background-color: aqua;
+    /*position: fixed;*/
+}
+
+.test-z-index {
+    position: absolute;
+    left: 50px;
+    top: 2600px;
+    z-index: 1;
+    /* 剪切元素外形*/
+    clip: rect(0px, 60px, 100px, 0px);
+}
+
+.test-cursor span {
+    padding: 8px;
+    border: 1px solid aqua;
+}
+
+.test-img-float {
+    float: right;
+}
+
+.test-float-img {
+    float: left;
+    width: 110px;
+    height: 90px;
+    margin: 5px;
+}
+
+.test-float-text {
+    float: left;
+    width: 1.2em;
+    font-size: 300%;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 80%;
+}
+
+.test-block-horzizontal {
+    width: 200px; 
+    height: 50px; 
+    border: 1px solid aqua; 
+    margin: 0 auto; 
+    text-align: center;  
+    top: 50%;
+    padding-top: 25px;
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+}
+
+
+.test-Pseudo-classes01>p:first-child {
+    color: blue;
+}
+
+.test-Pseudo-classes02>p:first-child i {
+    color: red;
+}
+
+.test-form-css>input:focus {
+    background-color: aqua;
+    font-size: 16px;
+}
+
+.test-pseudo-element01::first-letter {
+    color: red;
+    font-size: xx-large;
+}
+
+.test-pseudo-element02::before {
+    content: url('http://wx3.sinaimg.cn/mw690/006xRFa6gy1fg9fdmuqwcj301e00r0si.jpg');
+}
+
+.test-pseudo-element03::after {
+    content: url('http://wx3.sinaimg.cn/mw690/006xRFa6gy1fg9fdmuqwcj301e00r0si.jpg');
+}
+
+.test-navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.test-navigation a:link,
+.test-navigation a:visited {
+    display: block;
+    width: 80px;
+    color: white;
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+}
+
+.test-navigation a:hover,
+.test-navigation a:active {
+    background-color: green;
+}
+
+.test-navigation-h01 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.test-navigation-h01 li {
+    display: inline;
+}
+
+.test-navigation-h01 a:link,
+.test-navigation-h01 a:visited {
+    /*display: block;*/
+    /*width: 80px;*/
+    color: white;
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+}
+
+.test-navigation-h01 a:hover,
+.test-navigation-h01 a:active {
+    background-color: green;
+}
+
+.test-navigation-h02 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.test-navigation-h02 li {
+    float: left;
+}
+
+.test-navigation-h02 a:link,
+.test-navigation-h02 a:visited {
+    display: block;
+    width: 100px;
+    color: white;
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+    border: 1px solid white;
+}
+
+.test-navigation-h02 a:hover,
+.test-navigation-h02 a:active {
+    background-color: green;
+}
+
+/*
+.test-a-content a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	font-size: 32px;
+	padding: 0 10px;
+}
+*/
+/* 大框 */
+/*
+.test-a-content a:hover::before, .test-a-content a:hover::after { 
+	content: "";
+	display: block;
+	position: absolute;
+	top: -15%;
+	left: -14%;
+	width: 120%;
+	height: 120%;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #DDD;
+ }*/
+
+/* 小框 */
+/*
+.test-a-content a:hover::after {
+ 	top: 0%;
+ 	left: 0%;
+	width: 100%;
+	height: 100%;
+	border-width: 2px;
+ }*/
+.test-a-content {
+    margin-left: 30px;
+}
+
+.test-a-content a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	font-size: 24px;
+	padding: 5px 10px;
+}
+
+.test-a-content a:hover::before, .test-a-content a:hover::after { position: absolute; }
+.test-a-content a:hover::before { content: "\5B"; left: -20px; }
+.test-a-content a:hover::after { content: "\5D"; right:  -20px; }
+
+.test-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.test-dropbtn {
+    background-color: #4cAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.test-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    /*right: 0;*/
+}
+
+.test-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.test-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.test-dropdown:hover .test-dropdown-content {
+    display: block;
+}
+
+.test-dropdown:hover .test-dropbtn {
+    background-color: #3e8e41;
+}
+
+/*-------------------------*/
+.test-mydropdown ul {
+    list-style-type: none;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 300px;
+}
+
+.test-mydropdown ul li {
+    float: left;
+}
+
+.test-mydropdown ul li a, .dropbtn {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.test-mydropdown ul li a:hover, .dropdown:hover .dropbtn {
+    background-color: #111;
+}
+
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
