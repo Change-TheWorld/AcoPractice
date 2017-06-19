@@ -1,4 +1,3 @@
-
 app.controller('myCalculatorCtrl', ['$scope','CalcService',function($scope, CalcService) {
     $scope.a = 0;
     $scope.b = 0;
@@ -6,9 +5,14 @@ app.controller('myCalculatorCtrl', ['$scope','CalcService',function($scope, Calc
 
     $scope.result = '';
     $scope.errorMsg = '';
-
-    $scope.result = function() {
-        alert("$scope.mark");
+/*
+    $scope.inputEvent(e) =function(e) {
+        a = e.value;
+        alert("a");
+    }
+*/
+    $scope.getResult = function() {
+        // alert("$scope.mark");
         switch($scope.mark) {
             case '+': 
                 $scope.result = CalcService.add($scope.a, $scope.b);
@@ -20,11 +24,11 @@ app.controller('myCalculatorCtrl', ['$scope','CalcService',function($scope, Calc
                 $scope.result = CalcService.multiply($scope.a, $scope.b);
                 break;
             case '/': {
-                if($scope.b == 0) {
+                if(Number($scope.b) == 0) {
                     $scope.errorMsg = "错误！分母不能为0";
                     break;
                 }
-                $scope.result = CalcService.divide($scope.a);
+                $scope.result = CalcService.divide($scope.a, $scope.b);
                 break;
             }
             case 'x^2': 

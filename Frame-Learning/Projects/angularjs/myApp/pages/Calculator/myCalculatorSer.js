@@ -32,4 +32,5 @@ app.service('CalcService', function(MathService) {
     this.factorial = function(a) {
         return MathService.factorial(a);
     };
+    
 });

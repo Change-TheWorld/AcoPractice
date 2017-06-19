@@ -8,7 +8,7 @@ app.config(['$routeProvider', function($routeProvider) {
         controller: 'myFormCtrl'
     }).when('/calculator', {
         templateUrl: 'pages/Calculator/myCalculator.html',
-        controller: 'myCalcualtorCtrl'
+        controller: 'myCalculatorCtrl'
     }).otherwise({
         redirectTo: '/todoList'
       });

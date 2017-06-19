@@ -27,7 +27,7 @@
     <div class="container" ng-app="myApp">
         <h2 class="title01"> 通过几个应用实例 ，检验这几天学习的成果</h2>
         <hr>
-        <div class="row">
+        <div class="row mynavbar">
             <div class="col-sm-4 col-md-4">
                 <a href="#/todoList"><button class="btn btn-primary">备忘录</button></a>
             </div>
@@ -35,56 +35,15 @@
                 <a href="#/form"><button class="btn btn-primary">较完整表单</button></a>
             </div>
             <div class="col-sm-4 col-md-4">
-                <button class="btn btn-primary">计算器</button>
+                <a href="#/calculator"><button class="btn btn-primary">计算器</button></a>
             </div>
         </div>
-
-        <br>
-        <div ng-view=""></div>
-
         <hr>
-        <!-- 计算器部分 -->
-        <h4 class="title02">第三个应用： 计算器(练习依赖注入)</h4>
-        <hr style="clear: both;">
-        <div ng-controller="myCalculatorCtrl">
-            <div class="CalFream">
-                <div class="myReault">
-                    <input type="text" name="result" ng-model="result" class="inner">
-                </div>
-                <div >
-                    <input type="button" value="+" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="-" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="*" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="/" class="btn btn-primary btn-lg" ng-click="">
-                </div>
-                <div >
-                    <input type="button" value="7" class="btn btn-primary btn-lg" ng-click="input">
-                    <input type="button" value="8" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="9" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="x^2" class="btn btn-primary btn-lg" ng-click="">
-                </div>
-                <div>
-                    <input type="button" value="4" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="5" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="6" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="x^3" class="btn btn-primary btn-lg" ng-click="">
-                </div>
-                <div>
-                    <input type="button" value="1" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="2" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="3" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="x!" class="btn btn-primary btn-lg" ng-click="">
-                </div>
-                <div >
-                    <input type="button" value="0" class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="." class="btn btn-primary btn-lg" ng-click="">
-                    <input type="button" value="=" ng-click="result()" class="btn btn-primary btn-lg" >
-                </div>
-
-            </div>
-
-
+        <div class="mytime">
+            隐藏背景: <input type="checkbox" ng-model="myCheck">
         </div>
+        <hr style="clear: both;">
+        <div ng-view="" class="myContent" ng-hide="myCheck"></div>
 
     </div>
 

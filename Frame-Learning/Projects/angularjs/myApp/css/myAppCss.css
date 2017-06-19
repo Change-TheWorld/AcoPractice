@@ -12,8 +12,8 @@
 }
 
 .headimg {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 /* 计算器部分 */
@@ -36,6 +36,26 @@
     text-align: center;
 }
 
+.mynavbar {
+    text-align: center;
+}
+
+.myContent {
+    background-color: #1DAAA0;
+    padding: 30px;
+}
+
+div.ng-hide {
+  animation: 5s myChange;
+}
+
+@keyframes myChange {
+  from {
+      background-color: #1DAAA0;
+  } to {
+      background-color: transparent;
+  }
+}
 
 
 
