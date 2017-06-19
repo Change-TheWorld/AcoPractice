@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Demo</title>
+
+    <!-- 个人设置 -->
+    <link rel="short icon" type="x-icon" href="./assets/Aco_favicon.ico">
+
+    <!-- CSS 资源引入 -->
+    <link rel="stylesheet" href="./css/myAppCss.css">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/myetc.js"></script>
+
+</head>
+
+<body>
+    <div class="container" ng-app="myApp">
+        <h2 class="title01"> 通过几个应用实例 ，检验这几天学习的成果</h2>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <a href="#/todoList"><button class="btn btn-primary">备忘录</button></a>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <a href="#/form"><button class="btn btn-primary">较完整表单</button></a>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <button class="btn btn-primary">计算器</button>
+            </div>
+        </div>
+
+        <br>
+        <div ng-view=""></div>
+
+        <hr>
+        <!-- 计算器部分 -->
+        <h4 class="title02">第三个应用： 计算器(练习依赖注入)</h4>
+        <hr style="clear: both;">
+        <div ng-controller="myCalculatorCtrl">
+            <div class="CalFream">
+                <div class="myReault">
+                    <input type="text" name="result" ng-model="result" class="inner">
+                </div>
+                <div >
+                    <input type="button" value="+" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="-" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="*" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="/" class="btn btn-primary btn-lg" ng-click="">
+                </div>
+                <div >
+                    <input type="button" value="7" class="btn btn-primary btn-lg" ng-click="input">
+                    <input type="button" value="8" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="9" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="x^2" class="btn btn-primary btn-lg" ng-click="">
+                </div>
+                <div>
+                    <input type="button" value="4" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="5" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="6" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="x^3" class="btn btn-primary btn-lg" ng-click="">
+                </div>
+                <div>
+                    <input type="button" value="1" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="2" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="3" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="x!" class="btn btn-primary btn-lg" ng-click="">
+                </div>
+                <div >
+                    <input type="button" value="0" class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="." class="btn btn-primary btn-lg" ng-click="">
+                    <input type="button" value="=" ng-click="result()" class="btn btn-primary btn-lg" >
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- 引入必要的JS文件 -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="pages/TodoList/myTodoListCtrl.js"></script>
+    <script src="pages/Form/myFormCtrl.js"></script>
+    <script src="pages/Calculator/myCalculator.js"></script>
+    <script src="pages/Calculator/myCalculatorSer.js"></script>
+    <script src="pages/Calculator/myCalculatorCtrl.js"></script>
+
+</body>
+
+</html>

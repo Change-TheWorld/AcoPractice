@@ -1,0 +1,60 @@
+.title01 {
+    text-align: center;
+}
+
+.title02 {
+    color: aqua;
+    float: left;
+}
+
+.mytime {
+    float: right;
+}
+
+.headimg {
+    width: 50px;
+    height: 50px;
+}
+
+/* 计算器部分 */
+.CalFream {
+    width: 210px;
+    height: 295px;
+    border: 1px solid red;
+    background-color: aqua;
+}
+
+.myReault {
+    padding: 10px;
+}
+
+.inner {
+    padding: 8px;
+}
+
+.adjust-center {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

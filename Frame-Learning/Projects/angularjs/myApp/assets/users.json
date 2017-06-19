@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Aco",
+        "year": 21,
+        "hobby": "Running ang Coding",
+        "headimg": "assets/imgs/01.png"
+    }, {
+        "name": "Tom",
+        "year": 25,
+        "hobby": "Play basket ball",
+        "headimg": "assets/imgs/02.png"
+    }, {
+        "name": "Jack",
+        "year": 23,
+        "hobby": "Study and Reading",
+        "headimg": "assets/imgs/03.png"
+    }, {
+        "name": "Lily",
+        "year": 20,
+        "hobby": "Singing",
+        "headimg": "assets/imgs/04.png"
+    }, {
+        "name": "Eric",
+        "year": 22,
+        "hobby": "Play Games",
+        "headimg": "assets/imgs/05.png"
+    }
+]
