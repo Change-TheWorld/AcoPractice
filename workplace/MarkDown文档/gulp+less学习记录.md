@@ -9,7 +9,7 @@
 ### Grunt.js和Gulp.js工作方式的区别。
 #### Grunt主要是以 `文件` 为媒介来运行它的工作流
 
-Grunt执行完一项任务之后，分为四步，
+Grunt执行完一项任务之后，分为四步
 1. 第一步会把结果写入到一个 `临时文件` 中
 2. 之后再在这个 `临时文件` 内容的基础上执行其它任务
 3. 执行完成后再把结果写入到 `临时文件` 中
@@ -34,7 +34,7 @@ npm install cnpm -g --registry=https://registry.npm.taobao.org
 ### 项目安装 gulp 以及 gulp 插件
 
 ```bash
-cnpm install gulp gulp-uglify gulp-clean-css gulp-imagemin gulp-load-plugins gulp-rename gulp-minify-html gulp-jshint gulp-concat gulp-less gulp-sass browser-sync gulp-clean gulp-babel --save-dev
+cnpm install gulp gulp-uglify gulp-imagemin gulp-cssnano gulp-autoprefixer gulp-rename jshint gulp-jshint gulp-concat gulp-less browser-sync gulp-babel --save-dev
 ```
 
 这些插件的用处后面会简要介绍，一般常用的就这些，细心的朋友可能会发现，全局安装了 gulp ，为什么项目根目录下还要再装一次呢？有兴趣的可以看下 stackoverflow 上有人做出的回答：[why-do-we-need-to-install-gulp-globally-and-locally](https://stackoverflow.com/questions/22115400/why-do-we-need-to-install-gulp-globally-and-locally)、[what-is-the-point-of-double-install-in-gulp](https://stackoverflow.com/questions/25713618/what-is-the-point-of-double-install-in-gulp)。就是为了版本的灵活性以及可部署性，引用官方的一段描述
@@ -78,6 +78,22 @@ var plugins = require('gulp-load-plugins')();
             ├── index.jade // 入口视图模板
             └── index.less // 入口视图样式
         └── vendor.config.js // 依赖的库配置文件（自定义）
+
+另一个简单清爽的页面结构
+    - project
+    |- build
+    |- dist // 打包文件夹
+    |- src  // 源文件夹
+    | |- assets // 放置一些第三方文件，如bootstrap
+    | |- css
+    | | `- index.css
+    | |- images
+    | |- js
+    | | `- index.js
+    | |- sass
+    | | `- index.scss
+    |- gulpfile.js
+    `- package.json
 
 ### 运行 gulp 任务
 要运行 gulp 任务，只需切换到存放 `gulpfile.js` 文件的目录( windows 平台请使用 `cmd` 或者 `Power Shell` 等工具)，然后在命令行中执行 gulp 命令就行了，gulp 后面可以加上要执行的任务名，例如 `gulp task1`，如果没有指定任务名，则会执行任务名为 `default` 的默认任务。
