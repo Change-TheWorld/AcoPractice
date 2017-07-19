@@ -9,9 +9,12 @@ HTML5 中的一些有趣的新特性：
 4. 新的特殊内容元素，比如 article、footer、header、nav、section
 5. 新的表单控件，比如 calendar、date、time、email、url、search
 
-### 1. 声明
+## 要点
 
-`<!doctype>` 声明必须位于 HTML5 文档中的第一行,使用非常简单: `<!DOCTYPE html>` (虽然没有特殊规定，但是！DOCTYPE)
+### 声明
+`<!doctype>` 声明必须位于 HTML5 文档中的第一行,使用非常简单: `<!DOCTYPE html>` (虽然没有特殊规定，但是！DOCTYPE 一般大写)
+
+### 新
 
 
 
