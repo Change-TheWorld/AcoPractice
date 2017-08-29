@@ -1,14 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" conent="ie=edge">
-    <link rel="short icon" type="X-icon" href="../../Resources/images/Aco_favicon.ico">
+    <link rel="short icon" type="x-icon" href="../Resources/images/favicon.ico">
+    <link rel="stylesheet" href="./html5-test01.css">
     <title>我的H5学习记录</title>
+    <!--[if lt IE9]> 
+    <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
-<body>
 
-    
+<body>
+    <p class="myTitle">* 测试自定义控件</p>
+    <aco>这是我的自定义控件"Aco"</aco>
+    <p class="myTitle">* 测试canvas</p>
+    <canvas id="myCanvas1" class="myCanvasGroup" width="100" height="100">
+        您的浏览器不支持 HTML5 canvas 标签。
+    </canvas>
+    <canvas id="myCanvas2" class="myCanvasGroup" width="100" height="100"></canvas>
+    <canvas id="myCanvas3" class="myCanvasGroup" width="100" height="100"></canvas>
+    <canvas id="myCanvas4" class="myCanvasGroup" width="100" height="100"></canvas>
+    <canvas id="myCanvas5" class="myCanvasGroup" width="100" height="100"></canvas>
+    <canvas id="myCanvas6" class="myCanvasGroup" width="100" height="100"></canvas>
+    <img src="../Resources/images/11.png" alt="" id="textImg" class="myimg">
+    <p class="myTitle">* 测试audio和vedio</p>
+    <button onclick="togglePlay()">播放/暂停</button>
+    <video width="320" height="240" controls id="test-video">
+        <source src="../Resources/video/mov_bbb.mp4" type="video/mp4">
+        <!-- <source src="blob:https://www.bilibili.com/58d6f952-5c78-4711-8fef-685aa4711e35" type="video/mp4"> -->
+        <source src="movie.ogg" type="video/ogg"> 您的浏览器不支持Video标签。
+    </video>
+    <!-- <video src="blob:https://www.bilibili.com/58d6f952-5c78-4711-8fef-685aa4711e35"></video> -->
+    <audio controls>
+        <source src="../Resources/audio/horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg">
+    </audio>
+    <p class="myTitle">* 测试 svg</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+        <polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+    </svg>
+
+    <p class="myTitle">* 测试 拖放</p>
+    <div id="drag-div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="../Resources/images/01.png" alt="拖放图片" draggable="true" ondragstart="drag(event)" id="drag-img">
+    </div>
+    <div id="drag-div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <p class="myTitle">* 测试 h5获取地理位置</p>
+    <p id="geo-location">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+    <button onclick="getLocation()">点我</button>
+    <div id="mapholder"></div>
+
+    <p class="myTitle">* 测试 input类型</p>
+    <div>
+        <div class="input-div">
+            选择你喜欢的颜色: <input type="color" name="favcolor"> 
+            生日: <input type="date" name="bday">
+        </div>
+        <div class="input-div">
+            生日 (日期和时间): <input type="datetime" name="bdaytime"> 
+            E-mail: <input type="email" name="email">
+        </div>
+        <div class="input-div">
+            生日 (月和年): <input type="month" name="bdaymonth"> 
+            数量 ( 1 到 5 之间 ): <input type="number" name="quantity" min="1" max="5">
+        </div>
+        <div class="input-div">
+            <input type="range" name="points" min="1" max="10"> 
+            Search Google: <input type="search" name="googlesearch">
+        </div>
+        <div class="input-div">
+            电话号码: <input type="tel" name="usrtel"> 
+            选择时间: <input type="time" name="usr_time">
+        </div>
+        <div class="input-div">
+            添加您的主页: <input type="url" name="homepage"> 
+            选择周: <input type="week" name="week_year">
+        </div>
+        <div>
+            <input type="file" name="pic" accept="image/*">
+            Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+        </div>
+    </div>
+
+	<p class="myTitle">* </p>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./h5-test.js"></script>
 </body>
+
 </html>
