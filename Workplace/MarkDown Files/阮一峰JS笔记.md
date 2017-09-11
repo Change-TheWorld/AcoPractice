@@ -127,7 +127,7 @@ top2:
 2. instanceof运算符
 3. Object.prototype.toString方法
 
-#### typeof运算符
+### typeof运算符
 
 1. 原始类型： 数值、字符串、布尔值分别返回`number、string、boolean`。
 2. 函数： 函数返回 `function`。
@@ -189,7 +189,10 @@ undefined == null
 typeof null // "object"
 typeof undefined // "undefined"
 ```
-1. `null` 表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入 `null`
+1. `null` 表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入 `null`。书中有个例子举得特别好，
+
+比如，某个函数接受引擎抛出的错误作为参数，如果运行过程中未出错，那么这个参数就会传入null，表示未发生错误。
+
 2. `undefined`表示 `“未定义”`
 ```js
 // 变量声明了，但没有赋值
@@ -210,10 +213,223 @@ o.p // undefined
 function f() {}
 f() // undefined
 ```
-
-
-
 # 数据类型的转换
+JavaScript 是一种动态类型语言，变量没有类型限制，可以随时赋予任意值。但是数据本身和各种运算符是有类型的。如果运算符发现，数据的类型与预期不符，就会自动转换类型。
+
+## 布尔值的转换
+
+1. 两元逻辑运算符： `&& (And)，|| (Or)`
+2. 前置逻辑运算符： `! (Not)`
+3. 相等运算符：`===，!==，==，!=`
+4. 比较运算符：`>，>=，<，<=`
+
+转换规则是除了下面六个值被转为false，其他值都视为true。
+
+  undefined
+  null
+  false
+  0
+  NaN
+  ""或''（空字符串）
+
+## Number()
+将任意类型的值转化成数值。
+### 原始类型值的转换规则
+
+```js
+// 数值：转换后还是原来的值
+Number(324) // 324
+
+// 字符串：如果可以被解析为数值，则转换为相应的数值
+Number('324') // 324
+
+// 字符串：如果不可以被解析为数值，返回NaN
+Number('324abc') // NaN
+
+// 空字符串转为0
+Number('') // 0
+
+// 布尔值：true 转成1，false 转成0
+Number(true) // 1
+Number(false) // 0
+
+// undefined：转成 NaN
+Number(undefined) // NaN
+
+// null：转成0
+Number(null) // 0
+
+```
+
+Number函数将字符串转为数值，要比parseInt函数严格很多。基本上，只要有一个字符无法转成数值，整个字符串就会被转为NaN。
+```js
+parseInt('42 cats') // 42
+Number('42 cats') // NaN
+```
+
+Number函数会自动过滤一个字符串前导和后缀的空格。
+```js
+Number('\t\v\r12.34\n') // 12.34
+```
+
+### 对象的转换规则
+`Number` 方法的参数是对象时，将返回 `NaN` ，除非是包含单个数值的数组。
+```js
+Number({a: 1}) // NaN
+Number([1, 2, 3]) // NaN
+Number([5]) // 5
+```
+`Number` 背后的转换规则比较复杂
+1. 调用对象自身的 `valueOf` 方法。如果返回原始类型的值，则直接对该值使用`Number` 函数，不再进行后续步骤。
+2. 如果 `valueOf` 方法返回的还是对象，则改为调用对象自身的 `toString` 方法。如果 `toString` 方法返回原始类型的值，则对该值使用 `Number` 函数，不再进行后续步骤。
+3. 如果 `toString` 方法返回的是对象，就报错。
+
+```js
+var obj = {x: 1};
+Number(obj) // NaN
+
+// 等同于
+if (typeof obj.valueOf() === 'object') {
+  Number(obj.toString());
+} else {
+  Number(obj.valueOf());
+}
+```
+
+## String()
+
+将任意类型的值转化成字符串。
+
+### 原始类型值的转换规则
+1. 数值：转为相应的字符串。
+2. 字符串：转换后还是原来的值。
+3. 布尔值：`true` 转为 `"true"`，`false` 转为 `"false"`。
+4. `undefined`：转为 `"undefined"`。
+5. `null`：转为 `"null"`。
+```js
+String(123) // "123"
+String('abc') // "abc"
+String(true) // "true"
+String(undefined) // "undefined"
+String(null) // "null"
+```
+
+### 对象的转换规则
+String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
+
+```js
+String({a: 1}) // "[object Object]"
+String([1, 2, 3]) // "1,2,3"
+```
+
+1. String方法背后的转换规则，与Number方法基本相同，只是互换了valueOf方法和toString方法的执行顺序。
+先调用对象自身的toString方法。如果返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
+2. 如果toString方法返回的是对象，再调用原对象的valueOf方法。如果valueOf方法返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
+3. 如果valueOf方法返回的是对象，就报错。
+
+## Boolean()
+将任意类型的变量转为布尔值。
+除了以下六个值的转换结果为false，其他的值全部为true。
+
+  undefined
+  null
+  -0
+  0或+0
+  NaN
+  ''（空字符串）
+
+```js
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean(NaN) // false
+Boolean('') // false
+```
+
+所有对象的布尔值都是true
+
+注意，所有对象（包括空对象）的转换结果都是 `true` ，甚至连 `false` 对应的布尔对象 `new Boolean(false)` 也是 `true` 。
+```js
+Boolean({}) // true
+Boolean([]) // true
+Boolean(new Boolean(false)) // true
+```
+
+## 自动转换类型
+
+规则: 预期什么类型的值，就调用该类型的转换函数。自动转换具有不确定性，而且不易除错，建议在预期为 `布尔值、数值、字符串` 的地方，全部使用 `Boolean、Number和String` 函数进行显式转换。
+
+我挑选了一些比较常见的例子，一看就懂
+```js
+// 1. 不同类型的数据互相运算
+123 + 'abc' // "123abc"
+'5' + 1 // '51'
+'5' + true // "5true"
+'5' + false // "5false"
+'5' + {} // "5[object Object]"
+'5' + [] // "5"
+'5' + function (){} // "5function (){}"
+'5' + undefined // "5undefined"
+'5' + null // "5null"
+
+// 这一种很容易出错
+var obj = {
+  width: '100'
+};
+// 开发者可能期望返回120，但是由于自动转换，实际上返回了一个字符10020。
+obj.width + 20 // "10020"
+
+'5' - '2' // 3
+'5' * '2' // 10
+true - 1  // 0
+false - 1 // -1
+'1' - 1   // 0
+'5' * []    // 0
+false / '5' // 0
+'abc' - 1   // NaN
+
+
+// 2. 对非布尔值类型的数据求布尔值
+if ('abc') {
+  console.log('hello')
+}  // "hello"
+
+// 3. 对非数值类型的数据使用一元运算符（即“+”和“-”）
++ {foo: 'bar'} // NaN
+- [1, 2, 3] // NaN
++'abc' // NaN
+-'abc' // NaN
++true // 1
+-false // 0
+
+// 4. 将一个表达式转为布尔值
+// 写法一
+expression ? true : false
+
+// 写法二
+!! expression
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- 阮一峰JS教程阅读札记之JS对象篇 -->
