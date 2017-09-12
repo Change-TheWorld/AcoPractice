@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>门户首页</title>
+    <link rel="stylesheet" href="../../style/weui.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body ontouchstart>
+    <div class="container" id="container">
+        <div class="page__bd">
+            <div class="weui-tab">
+                <div class="weui-tab__bd">
+                    <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                        <h1>页面一</h1>
+                    </div>
+                    <div id="tab2" class="weui-tab__bd-item">
+                        <h1>页面二</h1>
+                    </div>
+                    <div id="tab3" class="weui-tab__bd-item">
+                        <div class="personal" style="padding-top: 50px;">
+                            <div class="weui-cells m0">
+                                <div class="weui-cell weui-cell_access">
+                                    <div class="weui-cell__bd">
+                                        头像
+                                    </div>
+                                    <div class=""><img class="tx" src="images/temp/3.jpg" alt=""></div>
+                                    <div class="weui-cell__ft">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="weui-cells mt5">
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        会员姓名
+                                    </div>
+                                    <div class="">陈小姐</div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div>会员昵称</div>
+                                    <div class="weui-cell__bd">
+                                        <input type="text" class="weui-input tar" value="Miss Chen">
+                                    </div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        会员级别
+                                    </div>
+                                    <div class="">黑卡会员</div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        会员卡号
+                                    </div>
+                                    <div class="">89785629736</div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        手机号码
+                                    </div>
+                                    <div class="">13728936556</div>
+                                </div>
+                                <div class="weui-cell weui-cell_access">
+                                    <div>所在城市</div>
+                                    <div class="weui-cell__bd">
+                                        <input class="weui-input tar" type="text" id="city-picker2" placeholder="广东 深圳" value="">
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                    </div>
+                                </div>
+                                <div class="weui-cell weui-cell_access">
+                                    <div>姓别</div>
+                                    <div class="weui-cell__bd">
+                                        <input type="text" class="weui-input tar" id='picker' placeholder="女">
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                    </div>
+                                </div>
+
+                                <div class="weui-cell weui-cell_access">
+                                    <div>出生年月</div>
+                                    <div class="weui-cell__bd">
+                                        <input type="text" class="weui-input tar" id='time' placeholder="2000-1-1">
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                    </div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        星座
+                                    </div>
+                                    <div class="">狮子座</div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div>QQ</div>
+                                    <div class="weui-cell__bd">
+                                        <input type="tel" class="weui-input tar" value="1390391475">
+                                    </div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div>电子邮箱</div>
+                                    <div class="weui-cell__bd">
+                                        <input type="email" class="weui-input tar" value="1390391475@qq.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="weui-tabbar">
+                <a href="#tab1" class="weui-tabbar__item weui-bar__item_on">
+                    <img src="../images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">通讯录</p>
+                </a>
+                <a href="#tab2" class="weui-tabbar__item">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="../images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    </span>
+                    <p class="weui-tabbar__label">发现</p>
+                </a>
+                <a href="#tab3" class="weui-tabbar__item">
+                    <img src="../images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">我</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../zepto.min.js"></script>
+    <script src="./index.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    border: 1px solid gray;
+    padding: 21px;
+}
+
+.clear {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
