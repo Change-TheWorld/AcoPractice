@@ -57,13 +57,13 @@ void buddle_sort03(int a[], int n){
                 swap(a[i], a[i+1]);
             }
         }
-        ++high;
+        --high;
         for(int j = high; j > low; j--) {
             if(a[j] > a[j+1]){
                 swap(a[j], a[j+1]);
             }
         }
-        --low;
+        ++low;
     }
 }
 
@@ -82,7 +82,7 @@ void simpleSelect01(int a[], int n) {
     }
 }
 
-void simpleSelect02(int a[],int n) {
+void simpleSelect02(int a[], int n) {
     int temp, i, j;
     for(i = 0; i < n; i++) {
         int min = i;
@@ -119,7 +119,7 @@ void shellSort(int a[],int n) {
 void mergeArray(int a[], int first, int mid, int last, int temp[]) {
     int i = first, j = mid + 1;
     int m = mid, n = last;
-    int k =0;
+    int k = 0;
 
     while(i<=m && j<=n) {
         if(a[i] <= a[j]) {
@@ -143,6 +143,29 @@ void mergeArray(int a[], int first, int mid, int last, int temp[]) {
     }
 }
 
+void mergeArray(int a[], int first, int mind ,int last, int temp) {
+    int i = first, j = mid + 1;
+    int m = mid, n = last;
+    int k = 0;
+    while(i <= m && j <= n) {
+        if(a[i] <= a[j]) {
+            temp[k++] = a[i++];
+        }else {
+            temp[k++] = a[j++];
+        }
+    }
+
+    while(i <= m)
+        temp[k++] = a[i++];
+
+    while(j <= n)
+        temp[k++] = a[j++];
+
+    for(i = 0; i < k; i++) {
+        a[first + i] = temp[i];
+    }l
+}
+
 // 归并排序
 void mergeSort(int a[], int first, int last, int temp[]) {
     if(first < last) {
@@ -150,6 +173,15 @@ void mergeSort(int a[], int first, int last, int temp[]) {
         mergeSort(a, first, mid, temp);  // 左边有序
         mergeSort(a, mid + 1, last, temp);   // 右边有序
         mergeArray(a, first, mid, last, temp);  // 合并
+    }
+}
+
+void merge_sort(int a[], int first, int last, int temp[]) {
+    if(first < last) {
+        int mid = (first + last) / 2;
+        merge_sort(a, first, mid, temp);    // 左边有序
+        merge_sort(a, mid + 1, last, temp); // 右边有序
+        mergeArray(a, first, mid, last, temp);  // 将两个有序数组合并
     }
 }
 
@@ -161,6 +193,31 @@ void MergeSort(int a[], int n) {
     mergeSort(a, 0, n-1, p);
     delete[] p;
 }
+
+
+void mergeSort(int a[],int n) {
+    int *p = new int[n];
+    if(p == NULL)
+        return;
+    merge_sort(1, 0, n-1, p);
+    delete[] p;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 快排
 int AdjustArray(int a[], int left, int right) {
@@ -179,7 +236,7 @@ int AdjustArray(int a[], int left, int right) {
         while(i<j && a[i] < x)
             i++;
         if(i<j) {
-            a[j] =a[i];
+            a[j] = a[i];
             j--;
         }
     }

@@ -6,6 +6,9 @@ const rl = readline.createInterface({
 });
 var inputArr = [];
 rl.on('line', function (input) {
+     inputArr.push(input);
+    console.log(inputArr[0]);
+    
     inputArr = input.split(" ");
     inputArr.forEach(function(item,index){
         inputArr[index] = +item;// 转化为数字
@@ -23,13 +26,10 @@ rl.on('close', function() {
 });
 */
 
-var readling = require("readline");
-var rl = readline.create
-
 var readline=require("readline");
 var rl=readline.createInterface({
     input:process.stdin,
-    output:process.stin
+    output:process.stdout
 });
 var is_first=true;
 rl.on("line",function(line){
