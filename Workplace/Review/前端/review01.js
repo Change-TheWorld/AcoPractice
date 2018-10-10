@@ -1,5 +1,5 @@
 if(typeof Array.isArray === 'undefined'){
-    Arrar.isArray = fucntion(arg) {
+    Arrar.isArray = function(arg) {
         return Object.prototype.toString.call(arg) === '[object Array]';
     }
 }
